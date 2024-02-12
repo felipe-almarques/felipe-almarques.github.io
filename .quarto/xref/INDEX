@@ -1,0 +1,50 @@
+{
+  "index.qmd": {
+    "index.html": "13c3bf75"
+  },
+  "disciplinas.qmd": {
+    "disciplinas.html": "bc3e1f69"
+  },
+  "ic.qmd": {
+    "ic.html": "8ab1486b"
+  },
+  "econometria.qmd": {
+    "econometria.html": "d7ed17d8"
+  },
+  "infcausal.qmd": {
+    "infcausal.html": "cf9f0436"
+  },
+  "Seminarios/kalman_filter.qmd": {
+    "kalman_filter.html": "ac7f641c"
+  },
+  "Materias/Analise_Sobrevivencia.qmd": {
+    "Analise_Sobrevivencia.html": "10d45711"
+  },
+  "Materias/ME908.qmd": {
+    "ME908.html": "9f4c8a01"
+  },
+  "Materias/ME920.qmd": {
+    "ME920.html": "8f1307de"
+  },
+  "Materias/ME623.qmd": {
+    "ME623.html": "bb34d5d5"
+  },
+  "Materias/ME714.qmd": {
+    "ME714.html": "21432e31"
+  },
+  "Seminarios/gas_garch_sv.qmd": {
+    "gas_garch_sv.html": "974317d7"
+  },
+  "Seminarios/GAS.qmd": {
+    "GAS.html": "2041b429"
+  },
+  "docs/Seminarios/GAS.qmd": {
+    "GAS.html": "45765412"
+  },
+  "docs/Seminarios/gas_garch_sv.qmd": {
+    "gas_garch_sv.html": "5401faab"
+  },
+  "Materias/disciplinas.qmd": {
+    "disciplinas.html": "b7860cd6"
+  }
+}
