@@ -23,5 +23,3 @@ Tenho 22 anos, sou estudante de estatística na Universidade Estadual de Campina
 ## Interesses
 
 Tenho muito interesse nas áreas de séries temporias, machine learning, econometria e finanças. Gosto muito de programar em R, mas sei também programar em Python e estou começando a aprender Júlia.
-
-
