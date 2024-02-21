@@ -10,9 +10,10 @@ editor: visual
 
 ## Sumario
 
-1.  State Space Representation
-2.  Kalman Filter (ou prediction ou smoothing)
-3.  blablabla
+1.  *State Space Representation*
+2.  *Kalman Filter* (ou *prediction* ou *smoothing*)
+3.  Previsão
+4.  Estimação dos parâmetros
 
 # State Space Representation
 
@@ -74,4 +75,20 @@ $$
 
 onde $\epsilon_t \sim WN(0, \sigma^2)$
 
-oi
+blablabla
+
+---
+# *Kalman Filter*
+
+---
+
+# Previsão
+
+---
+
+# Estimação dos parâmetros
+
+## Máxima verossimilhança
+
+A estimação dos parâmetros desconhecidos é feita através do método de máxima verossimilhança
+

@@ -46,7 +46,7 @@
     "href": "Seminarios/kalman_filter.html#sumario",
     "title": "Kalman Filter",
     "section": "Sumario",
-    "text": "Sumario\n\nState Space Representation\nKalman Filter (ou prediction ou smoothing)\nblablabla"
+    "text": "Sumario\n\nState Space Representation\nKalman Filter (ou prediction ou smoothing)\nPrevisão\nEstimação dos parâmetros"
   },
   {
     "objectID": "Seminarios/gas_garch_sv.html#introdução",
@@ -313,5 +313,12 @@
     "title": "GAS Model",
     "section": "",
     "text": "Introdução\nO modelo\nComparações\nCasos Particulares\nEstimação"
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#máxima-verossimilhança",
+    "href": "Seminarios/kalman_filter.html#máxima-verossimilhança",
+    "title": "Kalman Filter",
+    "section": "Máxima verossimilhança",
+    "text": "Máxima verossimilhança\nA estimação dos parâmetros desconhecidos é feita através do método de máxima verossimilhança"
   }
 ]
