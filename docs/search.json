@@ -319,6 +319,6 @@
     "href": "Seminarios/kalman_filter.html#máxima-verossimilhança",
     "title": "Kalman Filter",
     "section": "Máxima verossimilhança",
-    "text": "Máxima verossimilhança\nA estimação dos parâmetros desconhecidos é feita através do método de máxima verossimilhança"
+    "text": "Máxima verossimilhança\nA estimação dos parâmetros desconhecidos é feita através do método de máxima verossimilhança.\nCaso \\(\\xi_1\\) e \\(\\{\\mathbf{w}_t,\\mathbf{v}_t\\}\\)"
   }
 ]
