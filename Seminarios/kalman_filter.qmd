@@ -73,3 +73,5 @@ y_{t+1} - \mu = \phi_1(y_t - \mu) + \ldots + \phi_p(y_{t-p+1} - \mu) + \epsilon_
 $$
 
 onde $\epsilon_t \sim WN(0, \sigma^2)$
+
+oi
