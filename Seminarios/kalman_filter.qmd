@@ -79,12 +79,11 @@ blablabla
 
 ---
 # *Kalman Filter*
-
 ---
 
 # Previsão
 
----
+------------------------------------------------------------------------
 
 # Estimação dos parâmetros
 
@@ -93,4 +92,3 @@ blablabla
 A estimação dos parâmetros desconhecidos é feita através do método de máxima verossimilhança.
 
 Caso $\xi_1$ e $\{\mathbf{w}_t,\mathbf{v}_t\}$
-
