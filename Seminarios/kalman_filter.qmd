@@ -4,7 +4,8 @@ author: "Felipe Marques"
 format: 
   revealjs:
     incremental: true
-    theme: sky
+    theme: [default, custom.scss]
+    chalkboard: true
 editor: visual
 ---
 

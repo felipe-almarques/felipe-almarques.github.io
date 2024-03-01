@@ -1,32 +1,20 @@
 /*-- scss:default --*/
 
-$backgroudColor: #00589b;
+// Paleta de cor:
+// https://color.adobe.com/pt/search?q=Primary%20colors&t=term
 
+// color
+$body-bg: #F0F1F2; // cor do fundo
+$body-color: #402F25; // cor das letras
+$link-color: #73655A; // cor dos links
+$selection-bg: #D9CEC5; // cor da seleção
+$selection-color: #A69586; // cor das letras selecionadas
+
+// fontes
+// tenho que achar uma fonte boa
+
+// headings
+//$presentation-heading-font: ;
+$presentation-heading-color: #402F25;
+$presentation-h1-text-shadow: #A69586 1px 0 10px;
 /*-- scss:rules --*/
-body {
-  background-color: #00589b;
-}
-
-.title {
-  color: white;
-}
-
-.revel h1 {
-  color: yellow;
-}
-
-h2 {
-  color: gray;
-}
-
-h3 {
-  color: purple;
-}
-
-p {
-  color: white;
-}
-
-ul {
-  color: green;
-}
