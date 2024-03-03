@@ -320,5 +320,12 @@
     "title": "Kalman Filter",
     "section": "Máxima verossimilhança",
     "text": "Máxima verossimilhança\nA estimação dos parâmetros desconhecidos é feita através do método de máxima verossimilhança.\nCaso \\(\\xi_1\\) e \\(\\{\\mathbf{w}_t,\\mathbf{v}_t\\}\\)"
+  },
+  {
+    "objectID": "index.html#interesses",
+    "href": "index.html#interesses",
+    "title": "Felipe Marques",
+    "section": "",
+    "text": "Tenho muito interesse nas áreas de séries temporias, machine learning, econometria e finanças. Gosto muito de programar em R, mas sei também programar em Python e estou começando a aprender Júlia."
   }
 ]
