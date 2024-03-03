@@ -383,5 +383,33 @@
     "title": "Kalman Filter",
     "section": "Kalman Filter",
     "text": "Kalman Filter"
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#kalman-recursion",
+    "href": "Seminarios/kalman_filter.html#kalman-recursion",
+    "title": "Kalman Filter",
+    "section": "Kalman Recursion",
+    "text": "Kalman Recursion\nA recursão de Kalman é um método iterativo e recursivo para encontrar o melhor estimador linear de \\(\\xi_t\\), utilizando toda informação disponível até o momento.\nNesse sentido, em geral, o interesse está em um desses 3 casos:\n\nfilter (\\(\\hat\\xi_{t|t}\\))\nprediction (\\(\\hat\\xi_{t+1|t}\\))\nsmoothing (\\(\\hat\\xi_{\\tau|t}, \\tau &lt; t\\))"
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#sec-kalman-filter",
+    "href": "Seminarios/kalman_filter.html#sec-kalman-filter",
+    "title": "Kalman Filter",
+    "section": "Kalman Filter",
+    "text": "Kalman Filter"
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#sec-kalman-prediction",
+    "href": "Seminarios/kalman_filter.html#sec-kalman-prediction",
+    "title": "Kalman Filter",
+    "section": "Kalman Prediction",
+    "text": "Kalman Prediction"
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#sec-kalman-smoothing",
+    "href": "Seminarios/kalman_filter.html#sec-kalman-smoothing",
+    "title": "Kalman Filter",
+    "section": "Kalman Smoothing",
+    "text": "Kalman Smoothing"
   }
 ]

@@ -344,14 +344,14 @@ Felipe Marques
 <ol type="1">
 <li class="fragment"><a href="#/sec-introducao">Introdução</a></li>
 <li class="fragment"><a href="#/sec-state-space"><em>State Space Representation</em></a></li>
-<li class="fragment"><em>Kalman Recursion</em>
+<li class="fragment"><a href="#/sec-kalman-recursion"><em>Kalman Recursion</em></a>
 <ol type="1">
-<li class="fragment"><em>Kalman Filter</em></li>
-<li class="fragment"><em>Kalman Prediction</em></li>
-<li class="fragment"><em>Kalman Smoothing</em></li>
+<li class="fragment"><a href="#/sec-kalman-filter"><em>Kalman Filter</em></a></li>
+<li class="fragment"><a href="#/sec-kalman-prediction"><em>Kalman Prediction</em></a></li>
+<li class="fragment"><a href="#/sec-kalman-smoothing"><em>Kalman Smoothing</em></a></li>
 </ol></li>
-<li class="fragment">Estimação dos parâmetros</li>
-<li class="fragment">Inferência com <em>Kalman Filter</em></li>
+<li class="fragment"><a href="#/sec-estimacao">Estimação dos parâmetros</a></li>
+<li class="fragment"><a href="#/sec-inferencia">Inferência com <em>Kalman Filter</em></a></li>
 </ol>
 </section>
 <section>
@@ -411,11 +411,11 @@ y_{t+1} - \mu = \phi_1(y_t - \mu) + \ldots + \phi_p(y_{t-p+1} - \mu) + \epsilon_
 
 </section></section>
 <section>
-<section id="kalman-recursion" class="title-slide slide level1 center">
+<section id="sec-kalman-recursion" class="title-slide slide level1 center">
 <h1>Kalman Recursion</h1>
 
 </section>
-<section id="kalman-recursion-1" class="slide level2">
+<section id="kalman-recursion" class="slide level2">
 <h2>Kalman Recursion</h2>
 <p>A recursão de Kalman é um método iterativo e recursivo para encontrar o melhor estimador linear de <span class="math inline">\(\xi_t\)</span>, utilizando toda informação disponível até o momento.</p>
 <p>Nesse sentido, em geral, o interesse está em um desses 3 casos:</p>
@@ -425,14 +425,17 @@ y_{t+1} - \mu = \phi_1(y_t - \mu) + \ldots + \phi_p(y_{t-p+1} - \mu) + \epsilon_
 <li class="fragment"><em>smoothing</em> (<span class="math inline">\(\hat\xi_{\tau|t}, \tau &lt; t\)</span>)</li>
 </ul>
 </section>
-<section id="kalman-filter" class="slide level2">
+<section id="sec-kalman-filter" class="slide level2">
 <h2>Kalman Filter</h2>
 </section>
-<section class="slide level2">
-
+<section id="sec-kalman-prediction" class="slide level2">
+<h2>Kalman Prediction</h2>
+</section>
+<section id="sec-kalman-smoothing" class="slide level2">
+<h2>Kalman Smoothing</h2>
 </section></section>
 <section>
-<section id="estimação-dos-parâmetros" class="title-slide slide level1 center">
+<section id="sec-estimacao" class="title-slide slide level1 center">
 <h1>Estimação dos parâmetros</h1>
 
 </section>
@@ -440,13 +443,16 @@ y_{t+1} - \mu = \phi_1(y_t - \mu) + \ldots + \phi_p(y_{t-p+1} - \mu) + \epsilon_
 <h2>Máxima verossimilhança</h2>
 <p>A estimação dos parâmetros desconhecidos é feita através do método de máxima verossimilhança.</p>
 <p>Caso <span class="math inline">\(\xi_1\)</span> e <span class="math inline">\(\{\mathbf{w}_t,\mathbf{v}_t\}\)</span></p>
+</section></section>
+<section id="sec-inferencia" class="title-slide slide level1 center">
+<h1>Inferência com Kalman Filter</h1>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 

@@ -13,12 +13,12 @@ editor: visual
 
 1.  [Introdução](#sec-introducao)
 2.  [*State Space Representation*](#sec-state-space)
-3.  *Kalman Recursion*
-    1.  *Kalman Filter*
-    2.  *Kalman Prediction*
-    3.  *Kalman Smoothing*
-4.  Estimação dos parâmetros
-5.  Inferência com *Kalman Filter*
+3.  [*Kalman Recursion*](#sec-kalman-recursion)
+    1.  [*Kalman Filter*](#sec-kalman-filter)
+    2.  [*Kalman Prediction*](#sec-kalman-prediction)
+    3.  [*Kalman Smoothing*](#sec-kalman-smoothing)
+4.  [Estimação dos parâmetros](#sec-estimacao)
+5.  [Inferência com *Kalman Filter*](#sec-inferencia)
 
 # State Space Representation
 
@@ -84,7 +84,7 @@ blablabla
 
 ---
 
-# Kalman Recursion
+# Kalman Recursion {#sec-kalman-recursion}
 
 ---
 
@@ -99,14 +99,25 @@ Nesse sentido, em geral, o interesse está em um desses 3 casos:
 - *smoothing* ($\hat\xi_{\tau|t}, \tau < t$)
 ---
 
-## Kalman Filter
+## Kalman Filter {#sec-kalman-filter}
+
 
 ---
 
-# Estimação dos parâmetros
+## Kalman Prediction {#sec-kalman-prediction}
+
+
+---
+
+## Kalman Smoothing {#sec-kalman-smoothing}
+
+# Estimação dos parâmetros {#sec-estimacao}
 
 ## Máxima verossimilhança
 
 A estimação dos parâmetros desconhecidos é feita através do método de máxima verossimilhança.
 
 Caso $\xi_1$ e $\{\mathbf{w}_t,\mathbf{v}_t\}$
+
+
+# Inferência com Kalman Filter {#sec-inferencia}
