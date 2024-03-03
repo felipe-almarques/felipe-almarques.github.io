@@ -9,26 +9,30 @@ format:
 editor: visual
 ---
 
-## Sumario
+## Sumário
 
-1.  *State Space Representation*
-2.  *Kalman Filter* (ou *prediction* ou *smoothing*)
-3.  Previsão
+1.  [Introdução](#sec-introducao)
+2.  [*State Space Representation*](#sec-state-space)
+3.  *Kalman Recursion*
+    1.  *Kalman Filter*
+    2.  *Kalman Prediction*
+    3.  *Kalman Smoothing*
 4.  Estimação dos parâmetros
+5.  Inferência com *Kalman Filter*
 
 # State Space Representation
 
-------------------------------------------------------------------------
+---
 
-### Introducao
+## Introdução {#sec-introducao}
 
 A representação em estado de espaço é uma forma conveniente de representar as dinâmicas de uma variável através de duas equações que a descreve. (melhorar essa parte)
 
 Essa representação será útil quando tratarmos dos algoritmos de Kalman.
 
-------------------------------------------------------------------------
+---
 
-### State Space Representation
+## State Space Representation {#sec-state-space .unnumbered}
 
 Considere,
 
@@ -37,7 +41,7 @@ Considere,
 -   $\underset{(k \times 1)}{\mathbf{x}_t}$ um vetor de variáveis exógenas,
 -   $\mathbf{F}_{(r \times r)}, \mathbf{A}_{(n \times k)}', \mathbf{H}'_{(n \times r)}$ matrizes de coeficientes.
 
-------------------------------------------------------------------------
+---
 
 Então, a representação em estado de espaço de um modelo é da forma:
 
@@ -64,7 +68,7 @@ $\textrm{Var}(\mathbf{v}_t) = \mathbf{Q}$ e $\textrm{Var}(\mathbf{w}_t) = \mathb
 
 A equação de cima é chamada de *observation equation*, enquanto a de baixo é chamada de *state equation*.
 
-------------------------------------------------------------------------
+---
 
 ### Exemplos
 
@@ -79,12 +83,25 @@ onde $\epsilon_t \sim WN(0, \sigma^2)$
 blablabla
 
 ---
-# *Kalman Filter*
+
+# Kalman Recursion
+
 ---
 
-# Previsão
+## Kalman Recursion
 
-------------------------------------------------------------------------
+A recursão de Kalman é um método iterativo e recursivo para encontrar o melhor estimador linear de $\xi_t$, utilizando toda informação disponível até o momento.
+
+Nesse sentido, em geral, o interesse está em um desses 3 casos:
+
+- *filter* ($\hat\xi_{t|t}$)
+- *prediction* ($\hat\xi_{t+1|t}$)
+- *smoothing* ($\hat\xi_{\tau|t}, \tau < t$)
+---
+
+## Kalman Filter
+
+---
 
 # Estimação dos parâmetros
 

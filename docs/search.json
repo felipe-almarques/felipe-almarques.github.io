@@ -327,5 +327,61 @@
     "title": "Felipe Marques",
     "section": "",
     "text": "Tenho muito interesse nas áreas de séries temporias, machine learning, econometria e finanças. Gosto muito de programar em R, mas sei também programar em Python e estou começando a aprender Júlia."
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#sumário",
+    "href": "Seminarios/kalman_filter.html#sumário",
+    "title": "Kalman Filter",
+    "section": "Sumário",
+    "text": "Sumário\n\nIntrodução\nState Space Representation\nKalman Recursion\n\nKalman Filter\nKalman Prediction\nKalman Smoothing\n\nEstimação dos parâmetros\nInferência com Kalman Filter"
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#introducao-sec-introducao",
+    "href": "Seminarios/kalman_filter.html#introducao-sec-introducao",
+    "title": "Kalman Filter",
+    "section": "Introducao {sec-introducao}",
+    "text": "Introducao {sec-introducao}\nA representação em estado de espaço é uma forma conveniente de representar as dinâmicas de uma variável através de duas equações que a descreve. (melhorar essa parte)\nEssa representação será útil quando tratarmos dos algoritmos de Kalman."
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#state-space-representation-sec-state-space-.unnumbered",
+    "href": "Seminarios/kalman_filter.html#state-space-representation-sec-state-space-.unnumbered",
+    "title": "Kalman Filter",
+    "section": "State Space Representation {sec-state-space .unnumbered}",
+    "text": "State Space Representation {sec-state-space .unnumbered}\nConsidere,\n\n\\(\\underset{(n \\times 1)}{\\mathbf{y}_t}\\) um vetor de retornos observados,\n\\(\\underset{(r \\times 1)}{\\xi_t}\\) um vetor possívelmente não observado,\n\\(\\underset{(k \\times 1)}{\\mathbf{x}_t}\\) um vetor de variáveis exógenas,\n\\(\\mathbf{F}_{(r \\times r)}, \\mathbf{A}_{(n \\times k)}', \\mathbf{H}'_{(n \\times r)}\\) matrizes de coeficientes."
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#sec-introducao",
+    "href": "Seminarios/kalman_filter.html#sec-introducao",
+    "title": "Kalman Filter",
+    "section": "Introdução",
+    "text": "Introdução\nA representação em estado de espaço é uma forma conveniente de representar as dinâmicas de uma variável através de duas equações que a descreve. (melhorar essa parte)\nEssa representação será útil quando tratarmos dos algoritmos de Kalman."
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#sec-state-space",
+    "href": "Seminarios/kalman_filter.html#sec-state-space",
+    "title": "Kalman Filter",
+    "section": "State Space Representation",
+    "text": "State Space Representation\nConsidere,\n\n\\(\\underset{(n \\times 1)}{\\mathbf{y}_t}\\) um vetor de retornos observados,\n\\(\\underset{(r \\times 1)}{\\xi_t}\\) um vetor possívelmente não observado,\n\\(\\underset{(k \\times 1)}{\\mathbf{x}_t}\\) um vetor de variáveis exógenas,\n\\(\\mathbf{F}_{(r \\times r)}, \\mathbf{A}_{(n \\times k)}', \\mathbf{H}'_{(n \\times r)}\\) matrizes de coeficientes."
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#kalman-recursion-1",
+    "href": "Seminarios/kalman_filter.html#kalman-recursion-1",
+    "title": "Kalman Filter",
+    "section": "Kalman Recursion",
+    "text": "Kalman Recursion\nA recursão de Kalman é um método iterativo e recursivo para encontrar o melhor estimador linear de \\(\\xi_t\\), utilizando toda informação disponível até o momento.\nNesse sentido, em geral, o interesse está em um desses 3 casos:\n\nfilter (\\(\\hat\\xi_{t|t}\\))\nprediction (\\(\\hat\\xi_{t+1|t}\\))\nsmoothing (\\(\\hat\\xi_{\\tau|t}, \\tau &lt; t\\))"
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#kalman",
+    "href": "Seminarios/kalman_filter.html#kalman",
+    "title": "Kalman Filter",
+    "section": "Kalman",
+    "text": "Kalman"
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#kalman-filter",
+    "href": "Seminarios/kalman_filter.html#kalman-filter",
+    "title": "Kalman Filter",
+    "section": "Kalman Filter",
+    "text": "Kalman Filter"
   }
 ]

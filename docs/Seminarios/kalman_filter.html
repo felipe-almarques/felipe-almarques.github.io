@@ -339,13 +339,19 @@ Felipe Marques
 </div>
 
 </section>
-<section id="sumario" class="slide level2">
-<h2>Sumario</h2>
+<section id="sumário" class="slide level2">
+<h2>Sumário</h2>
 <ol type="1">
-<li class="fragment"><em>State Space Representation</em></li>
-<li class="fragment"><em>Kalman Filter</em> (ou <em>prediction</em> ou <em>smoothing</em>)</li>
-<li class="fragment">Previsão</li>
+<li class="fragment"><a href="#/sec-introducao">Introdução</a></li>
+<li class="fragment"><a href="#/sec-state-space"><em>State Space Representation</em></a></li>
+<li class="fragment"><em>Kalman Recursion</em>
+<ol type="1">
+<li class="fragment"><em>Kalman Filter</em></li>
+<li class="fragment"><em>Kalman Prediction</em></li>
+<li class="fragment"><em>Kalman Smoothing</em></li>
+</ol></li>
 <li class="fragment">Estimação dos parâmetros</li>
+<li class="fragment">Inferência com <em>Kalman Filter</em></li>
 </ol>
 </section>
 <section>
@@ -353,15 +359,13 @@ Felipe Marques
 <h1>State Space Representation</h1>
 
 </section>
-<section class="slide level2">
-
-<h3 id="introducao">Introducao</h3>
+<section id="sec-introducao" class="slide level2">
+<h2>Introdução</h2>
 <p>A representação em estado de espaço é uma forma conveniente de representar as dinâmicas de uma variável através de duas equações que a descreve. (melhorar essa parte)</p>
 <p>Essa representação será útil quando tratarmos dos algoritmos de Kalman.</p>
 </section>
-<section class="slide level2">
-
-<h3 id="state-space-representation-1">State Space Representation</h3>
+<section id="sec-state-space" class="slide level2 unnumbered">
+<h2>State Space Representation</h2>
 <p>Considere,</p>
 <ul>
 <li class="fragment"><span class="math inline">\(\underset{(n \times 1)}{\mathbf{y}_t}\)</span> um vetor de retornos observados,</li>
@@ -402,11 +406,27 @@ y_{t+1} - \mu = \phi_1(y_t - \mu) + \ldots + \phi_p(y_{t-p+1} - \mu) + \epsilon_
 \]</span></p>
 <p>onde <span class="math inline">\(\epsilon_t \sim WN(0, \sigma^2)\)</span></p>
 <p>blablabla</p>
+</section>
+<section class="slide level2">
+
 </section></section>
 <section>
-<section id="previsão" class="title-slide slide level1 center">
-<h1>Previsão</h1>
+<section id="kalman-recursion" class="title-slide slide level1 center">
+<h1>Kalman Recursion</h1>
 
+</section>
+<section id="kalman-recursion-1" class="slide level2">
+<h2>Kalman Recursion</h2>
+<p>A recursão de Kalman é um método iterativo e recursivo para encontrar o melhor estimador linear de <span class="math inline">\(\xi_t\)</span>, utilizando toda informação disponível até o momento.</p>
+<p>Nesse sentido, em geral, o interesse está em um desses 3 casos:</p>
+<ul>
+<li class="fragment"><em>filter</em> (<span class="math inline">\(\hat\xi_{t|t}\)</span>)</li>
+<li class="fragment"><em>prediction</em> (<span class="math inline">\(\hat\xi_{t+1|t}\)</span>)</li>
+<li class="fragment"><em>smoothing</em> (<span class="math inline">\(\hat\xi_{\tau|t}, \tau &lt; t\)</span>)</li>
+</ul>
+</section>
+<section id="kalman-filter" class="slide level2">
+<h2>Kalman Filter</h2>
 </section>
 <section class="slide level2">
 
