@@ -17,4 +17,12 @@ $selection-color: #A69586; // cor das letras selecionadas
 //$presentation-heading-font: ;
 $presentation-heading-color: #402F25;
 $presentation-h1-text-shadow: #A69586 1px 0 10px;
+
 /*-- scss:rules --*/
+
+.math.inline {
+    font-size: 70%;
+}
+.math.display {
+    font-size: 70%;
+}

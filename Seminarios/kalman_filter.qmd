@@ -22,7 +22,7 @@ editor: visual
 
 # State Space Representation
 
-------------------------------------------------------------------------
+---
 
 ## Introdução {#sec-introducao}
 
@@ -30,7 +30,7 @@ A representação em estado de espaço é uma forma conveniente de representar a
 
 Essa representação será útil quando tratarmos dos algoritmos de Kalman.
 
-------------------------------------------------------------------------
+---
 
 ## State Space Representation {#sec-state-space}
 
@@ -41,7 +41,7 @@ Considere,
 -   $\underset{(k \times 1)}{\mathbf{x}_t}$ um vetor de variáveis exógenas,
 -   $\mathbf{F}_{(r \times r)}, \mathbf{A}_{(n \times k)}', \mathbf{H}'_{(n \times r)}$ matrizes de coeficientes.
 
-------------------------------------------------------------------------
+---
 
 Então, a representação em estado de espaço de um modelo é dada por:
 
@@ -68,7 +68,7 @@ $\textrm{Var}(\mathbf{v}_t) = \mathbf{Q}$ e $\textrm{Var}(\mathbf{w}_t) = \mathb
 
 A equação de cima é chamada de *observation equation*, enquanto a de baixo é chamada de *state equation*.
 
-------------------------------------------------------------------------
+---
 
 ## Exemplos
 
@@ -88,10 +88,10 @@ onde $\epsilon_t \sim WN(0, \sigma^2)$
 
 Podemos escrever esse modelo na forma de espaço de estado como segue:
 
-------------------------------------------------------------------------
-::: {.r-fit-text}
-(*Observation Equation*)
+---
 
+
+(*Observation Equation*)
 $$
 \begin{bmatrix}
   y_{t+1} - \mu \\
@@ -119,7 +119,7 @@ $$
   0
 \end{bmatrix}
 $$
-:::
+
 
 (*State Equation*)
 
@@ -132,11 +132,11 @@ y_{t-p+1} - \mu
 \end{bmatrix}
 $$
 
-------------------------------------------------------------------------
+---
 
 # Kalman Recursion {#sec-kalman-recursion}
 
-------------------------------------------------------------------------
+---
 
 ## Kalman Recursion
 
@@ -148,17 +148,15 @@ Nesse sentido, em geral, o interesse está em um desses 3 casos:
 
 -   *prediction* ($\hat\xi_{t+1|t}$)
 
--   
-
-    ## *smoothing* ($\hat\xi_{\tau|t}, \tau < t$)
+-   *smoothing* ($\hat\xi_{\tau|t}, \tau < t$)
 
 ## Kalman Filter {#sec-kalman-filter}
 
-------------------------------------------------------------------------
+---
 
 ## Kalman Prediction {#sec-kalman-prediction}
 
-------------------------------------------------------------------------
+---
 
 ## Kalman Smoothing {#sec-kalman-smoothing}
 
