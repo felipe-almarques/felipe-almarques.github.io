@@ -22,7 +22,7 @@ editor: visual
 
 # State Space Representation
 
----
+------------------------------------------------------------------------
 
 ## Introdução {#sec-introducao}
 
@@ -30,7 +30,7 @@ A representação em estado de espaço é uma forma conveniente de representar a
 
 Essa representação será útil quando tratarmos dos algoritmos de Kalman.
 
----
+------------------------------------------------------------------------
 
 ## State Space Representation {#sec-state-space}
 
@@ -41,7 +41,7 @@ Considere,
 -   $\underset{(k \times 1)}{\mathbf{x}_t}$ um vetor de variáveis exógenas,
 -   $\mathbf{F}_{(r \times r)}, \mathbf{A}_{(n \times k)}', \mathbf{H}'_{(n \times r)}$ matrizes de coeficientes.
 
----
+------------------------------------------------------------------------
 
 Então, a representação em estado de espaço de um modelo é dada por:
 
@@ -68,9 +68,11 @@ $\textrm{Var}(\mathbf{v}_t) = \mathbf{Q}$ e $\textrm{Var}(\mathbf{w}_t) = \mathb
 
 A equação de cima é chamada de *observation equation*, enquanto a de baixo é chamada de *state equation*.
 
----
+------------------------------------------------------------------------
 
-### Exemplos
+## Exemplos
+
+. . .
 
 Considere o processo AR(p) dado da forma:
 
@@ -80,14 +82,14 @@ $$
 y_{t+1} - \mu = \phi_1(y_t - \mu) + \ldots + \phi_p(y_{t-p+1} - \mu) + \epsilon_{t+1}
 $$
 
-. . . 
+. . .
 
 onde $\epsilon_t \sim WN(0, \sigma^2)$
 
 Podemos escrever esse modelo na forma de espaço de estado como segue:
 
----
-
+------------------------------------------------------------------------
+::: {.r-fit-text}
 (*Observation Equation*)
 
 $$
@@ -117,6 +119,7 @@ $$
   0
 \end{bmatrix}
 $$
+:::
 
 (*State Equation*)
 
@@ -129,11 +132,11 @@ y_{t-p+1} - \mu
 \end{bmatrix}
 $$
 
----
+------------------------------------------------------------------------
 
 # Kalman Recursion {#sec-kalman-recursion}
 
----
+------------------------------------------------------------------------
 
 ## Kalman Recursion
 
@@ -141,20 +144,21 @@ A recursão de Kalman é um método iterativo e recursivo para encontrar o melho
 
 Nesse sentido, em geral, o interesse está em um desses 3 casos:
 
-- *filter* ($\hat\xi_{t|t}$)
-- *prediction* ($\hat\xi_{t+1|t}$)
-- *smoothing* ($\hat\xi_{\tau|t}, \tau < t$)
----
+-   *filter* ($\hat\xi_{t|t}$)
+
+-   *prediction* ($\hat\xi_{t+1|t}$)
+
+-   
+
+    ## *smoothing* ($\hat\xi_{\tau|t}, \tau < t$)
 
 ## Kalman Filter {#sec-kalman-filter}
 
-
----
+------------------------------------------------------------------------
 
 ## Kalman Prediction {#sec-kalman-prediction}
 
-
----
+------------------------------------------------------------------------
 
 ## Kalman Smoothing {#sec-kalman-smoothing}
 
@@ -166,5 +170,7 @@ A estimação dos parâmetros desconhecidos é feita através do método de máx
 
 Caso $\xi_1$ e $\{\mathbf{w}_t,\mathbf{v}_t\}$
 
-
 # Inferência com Kalman Filter {#sec-inferencia}
+
+
+

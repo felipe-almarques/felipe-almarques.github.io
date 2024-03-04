@@ -397,22 +397,24 @@ Felipe Marques
 <p>A equação de cima é chamada de <em>observation equation</em>, enquanto a de baixo é chamada de <em>state equation</em>.</p>
 </div>
 </section>
-<section class="slide level2">
-
-<h3 id="exemplos">Exemplos</h3>
+<section id="exemplos" class="slide level2">
+<h2>Exemplos</h2>
+<div class="fragment">
 <p>Considere o processo AR(p) dado da forma:</p>
-<p>. . .</p>
+</div>
+<div class="fragment">
 <p><span class="math display">\[
 y_{t+1} - \mu = \phi_1(y_t - \mu) + \ldots + \phi_p(y_{t-p+1} - \mu) + \epsilon_{t+1}
 \]</span></p>
-<p>. . .</p>
+</div>
+<div class="fragment">
 <p>onde <span class="math inline">\(\epsilon_t \sim WN(0, \sigma^2)\)</span></p>
 <p>Podemos escrever esse modelo na forma de espaço de estado como segue:</p>
+</div>
 </section>
 <section class="slide level2">
 
-<p>(<em>Observation Equation</em>)</p>
-<p><span class="math display">\[
+<p>(<em>Observation Equation</em>) ::: {.r-fit-text} <span class="math display">\[
 \begin{bmatrix}
   y_{t+1} - \mu \\
   y_t - \mu \\
@@ -438,7 +440,7 @@ y_{t+1} - \mu = \phi_1(y_t - \mu) + \ldots + \phi_p(y_{t-p+1} - \mu) + \epsilon_
   \vdots \\
   0
 \end{bmatrix}
-\]</span></p>
+\]</span> :::</p>
 <p>(<em>State Equation</em>)</p>
 <p><span class="math display">\[
 y_t = \mu + \begin{bmatrix}1 &amp; 0 &amp; \ldots &amp; 0\end{bmatrix}\begin{bmatrix}
@@ -462,9 +464,9 @@ y_{t-p+1} - \mu
 <p>A recursão de Kalman é um método iterativo e recursivo para encontrar o melhor estimador linear de <span class="math inline">\(\xi_t\)</span>, utilizando toda informação disponível até o momento.</p>
 <p>Nesse sentido, em geral, o interesse está em um desses 3 casos:</p>
 <ul>
-<li class="fragment"><em>filter</em> (<span class="math inline">\(\hat\xi_{t|t}\)</span>)</li>
-<li class="fragment"><em>prediction</em> (<span class="math inline">\(\hat\xi_{t+1|t}\)</span>)</li>
-<li class="fragment"><em>smoothing</em> (<span class="math inline">\(\hat\xi_{\tau|t}, \tau &lt; t\)</span>)</li>
+<li class="fragment"><p><em>filter</em> (<span class="math inline">\(\hat\xi_{t|t}\)</span>)</p></li>
+<li class="fragment"><p><em>prediction</em> (<span class="math inline">\(\hat\xi_{t+1|t}\)</span>)</p></li>
+<li class="fragment"><h2 id="smoothing-hatxi_taut-tau-t"><em>smoothing</em> (<span class="math inline">\(\hat\xi_{\tau|t}, \tau &lt; t\)</span>)</h2></li>
 </ul>
 </section>
 <section id="sec-kalman-filter" class="slide level2">

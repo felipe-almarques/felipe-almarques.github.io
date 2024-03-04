@@ -411,5 +411,12 @@
     "title": "Kalman Filter",
     "section": "Kalman Smoothing",
     "text": "Kalman Smoothing"
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#exemplos",
+    "href": "Seminarios/kalman_filter.html#exemplos",
+    "title": "Kalman Filter",
+    "section": "Exemplos",
+    "text": "Exemplos\n\nConsidere o processo AR(p) dado da forma:\n\n\n\\[\ny_{t+1} - \\mu = \\phi_1(y_t - \\mu) + \\ldots + \\phi_p(y_{t-p+1} - \\mu) + \\epsilon_{t+1}\n\\]\n\n\nonde \\(\\epsilon_t \\sim WN(0, \\sigma^2)\\)\nPodemos escrever esse modelo na forma de espaço de estado como segue:"
   }
 ]
