@@ -361,7 +361,7 @@
     "href": "Seminarios/kalman_filter.html#sec-state-space",
     "title": "Kalman Filter",
     "section": "State Space Representation",
-    "text": "State Space Representation\nConsidere,\n\n\\(\\underset{(n \\times 1)}{\\mathbf{y}_t}\\) um vetor de retornos observados,\n\\(\\underset{(r \\times 1)}{\\xi_t}\\) um vetor possívelmente não observado,\n\\(\\underset{(k \\times 1)}{\\mathbf{x}_t}\\) um vetor de variáveis exógenas,\n\\(\\mathbf{F}_{(r \\times r)}, \\mathbf{A}_{(n \\times k)}', \\mathbf{H}'_{(n \\times r)}\\) matrizes de coeficientes."
+    "text": "State Space Representation\nConsidere,\n\n\\(\\underset{(n \\times 1)}{\\mathbf{y}_t}\\) um vetor de retornos observados,\n\\(\\underset{(r \\times 1)}{\\xi_t}\\) um vetor possívelmente não observado (state vector),\n\\(\\underset{(k \\times 1)}{\\mathbf{x}_t}\\) um vetor de variáveis exógenas,\n\\(\\mathbf{F}_{(r \\times r)}, \\mathbf{A}_{(n \\times k)}', \\mathbf{H}'_{(n \\times r)}\\) matrizes de coeficientes."
   },
   {
     "objectID": "Seminarios/kalman_filter.html#kalman-recursion-1",

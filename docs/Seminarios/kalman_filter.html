@@ -364,19 +364,19 @@ Felipe Marques
 <p>A representação em estado de espaço é uma forma conveniente de representar as dinâmicas de uma variável através de duas equações que a descreve. (melhorar essa parte)</p>
 <p>Essa representação será útil quando tratarmos dos algoritmos de Kalman.</p>
 </section>
-<section id="sec-state-space" class="slide level2 unnumbered">
+<section id="sec-state-space" class="slide level2">
 <h2>State Space Representation</h2>
 <p>Considere,</p>
 <ul>
 <li class="fragment"><span class="math inline">\(\underset{(n \times 1)}{\mathbf{y}_t}\)</span> um vetor de retornos observados,</li>
-<li class="fragment"><span class="math inline">\(\underset{(r \times 1)}{\xi_t}\)</span> um vetor possívelmente não observado,</li>
+<li class="fragment"><span class="math inline">\(\underset{(r \times 1)}{\xi_t}\)</span> um vetor possívelmente não observado (<em>state vector</em>),</li>
 <li class="fragment"><span class="math inline">\(\underset{(k \times 1)}{\mathbf{x}_t}\)</span> um vetor de variáveis exógenas,</li>
 <li class="fragment"><span class="math inline">\(\mathbf{F}_{(r \times r)}, \mathbf{A}_{(n \times k)}', \mathbf{H}'_{(n \times r)}\)</span> matrizes de coeficientes.</li>
 </ul>
 </section>
 <section class="slide level2">
 
-<p>Então, a representação em estado de espaço de um modelo é da forma:</p>
+<p>Então, a representação em estado de espaço de um modelo é dada por:</p>
 <div class="fragment">
 <p><span class="math display">\[
 \begin{equation}
@@ -401,11 +401,53 @@ Felipe Marques
 
 <h3 id="exemplos">Exemplos</h3>
 <p>Considere o processo AR(p) dado da forma:</p>
+<p>. . .</p>
 <p><span class="math display">\[
 y_{t+1} - \mu = \phi_1(y_t - \mu) + \ldots + \phi_p(y_{t-p+1} - \mu) + \epsilon_{t+1}
 \]</span></p>
+<p>. . .</p>
 <p>onde <span class="math inline">\(\epsilon_t \sim WN(0, \sigma^2)\)</span></p>
-<p>blablabla</p>
+<p>Podemos escrever esse modelo na forma de espaço de estado como segue:</p>
+</section>
+<section class="slide level2">
+
+<p>(<em>Observation Equation</em>)</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+  y_{t+1} - \mu \\
+  y_t - \mu \\
+  \vdots \\
+  y_{t-p+2} - \mu
+\end{bmatrix} =
+\begin{bmatrix}
+  \phi_1 &amp; \phi_2 &amp; \ldots &amp; \phi_{p-1} &amp; \phi_p \\
+  1 &amp; 0 &amp; \ldots &amp; 0 &amp; 0 \\
+  0 &amp; 1 &amp; \ldots &amp; 0 &amp; 0 \\
+  \vdots &amp; \vdots &amp; \ldots &amp; \vdots &amp; \vdots \\
+  0 &amp; 0 &amp; \ldots &amp; 1 &amp; 0 \\
+\end{bmatrix}
+\begin{bmatrix}
+  y_t - \mu \\
+  y_{t-1} - \mu \\
+  \vdots \\
+  y_{t-p+1} - \mu
+\end{bmatrix} +
+\begin{bmatrix}
+  \epsilon_{t+1} \\
+  0 \\
+  \vdots \\
+  0
+\end{bmatrix}
+\]</span></p>
+<p>(<em>State Equation</em>)</p>
+<p><span class="math display">\[
+y_t = \mu + \begin{bmatrix}1 &amp; 0 &amp; \ldots &amp; 0\end{bmatrix}\begin{bmatrix}
+y_t - \mu \\
+y_{t-1} \mu \\
+\vdots \\
+y_{t-p+1} - \mu
+\end{bmatrix}
+\]</span></p>
 </section>
 <section class="slide level2">
 
