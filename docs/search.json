@@ -389,7 +389,7 @@
     "href": "Seminarios/kalman_filter.html#kalman-recursion",
     "title": "Kalman Filter",
     "section": "Kalman Recursion",
-    "text": "Kalman Recursion\nA recursão de Kalman é um método iterativo e recursivo para encontrar o melhor estimador linear de \\(\\xi_t\\), utilizando toda informação disponível até o momento.\nNesse sentido, em geral, o interesse está em um desses 3 casos:\n\nfilter (\\(\\hat\\xi_{t|t}\\))\nprediction (\\(\\hat\\xi_{t+1|t}\\))\nsmoothing (\\(\\hat\\xi_{\\tau|t}, \\tau &lt; t\\))"
+    "text": "Kalman Recursion\nA recursão de Kalman é um método iterativo e recursivo para encontrar o melhor estimador linear de \\(\\xi_t\\), utilizando toda informação disponível até o momento (\\(\\mathcal{F}_t = (y_t', y_{t-1}', \\ldots, y_1', x_t', x_{t-1}', \\ldots, x_1')\\)).\nNesse sentido, em geral, o interesse está em um desses 3 casos:\n\nprediction (\\(\\hat\\xi_{t+1|t}\\))\nfilter (\\(\\hat\\xi_{t|t}\\))\nsmoothing (\\(\\hat\\xi_{\\tau|t}, \\tau &lt; t\\))"
   },
   {
     "objectID": "Seminarios/kalman_filter.html#sec-kalman-filter",
@@ -403,7 +403,7 @@
     "href": "Seminarios/kalman_filter.html#sec-kalman-prediction",
     "title": "Kalman Filter",
     "section": "Kalman Prediction",
-    "text": "Kalman Prediction"
+    "text": "Kalman Prediction\n\nO interesse é construir previsões lineares para \\(\\xi_t\\) dado toda informação passada, ou seja:\n\n\n\\[\n\\hat\\xi_{t+1|t} \\equiv \\hat E(\\xi_{t+1}|\\mathcal{F}_t)\n\\]\n\n\ncuja matriz de erro quadrático médio associada é dada por:\n\n\n\\[\n\\mathbf{P}_{t+1|t} \\equiv \\text{E}\\left[(\\xi_{t+1} - \\hat\\xi_{t+1})(\\xi_{t+1} - \\hat\\xi_{t+1})'\\right]\n\\]\n\n\nOs passos para construir o algoritmo são:\n\n\n\nDefinir \\(\\hat\\xi_{1|0}\\) e \\(\\mathbf{P}_{1|0}\\)\nPrever \\(\\hat y_{t|t-1}\\)\n\n\n\nAtualizar \\(\\hat\\xi_{t|t}\\)\nPrever \\(\\hat\\xi_{t+1|t}\\)"
   },
   {
     "objectID": "Seminarios/kalman_filter.html#sec-kalman-smoothing",

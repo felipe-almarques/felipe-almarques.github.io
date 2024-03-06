@@ -414,7 +414,7 @@ y_{t+1} - \mu = \phi_1(y_t - \mu) + \ldots + \phi_p(y_{t-p+1} - \mu) + \epsilon_
 </section>
 <section class="slide level2">
 
-<p>(<em>Observation Equation</em>) <span class="math display">\[
+<p>(<em>State Equation</em>) <span class="math display">\[
 \begin{bmatrix}
   y_{t+1} - \mu \\
   y_t - \mu \\
@@ -441,7 +441,7 @@ y_{t+1} - \mu = \phi_1(y_t - \mu) + \ldots + \phi_p(y_{t-p+1} - \mu) + \epsilon_
   0
 \end{bmatrix}
 \]</span></p>
-<p>(<em>State Equation</em>)</p>
+<p>(<em>Observation Equation</em>)</p>
 <p><span class="math display">\[
 y_t = \mu + \begin{bmatrix}1 &amp; 0 &amp; \ldots &amp; 0\end{bmatrix}\begin{bmatrix}
 y_t - \mu \\
@@ -453,45 +453,206 @@ y_{t-p+1} - \mu
 </section>
 <section class="slide level2">
 
-<p>(<em>Observation Equation</em>) <span class="math display">\[
+<p>(<em>State Equation</em>) <span class="math display">\[
 \underbrace{
 \begin{bmatrix}
   y_{t+1} - \mu \\
   y_t - \mu \\
   \vdots \\
   y_{t-p+2} - \mu
-\end{bmatrix}}_{Y} =
+\end{bmatrix}}_{\xi_{t+1}} =
 \underbrace{\begin{bmatrix}
   \phi_1 &amp; \phi_2 &amp; \ldots &amp; \phi_{p-1} &amp; \phi_p \\
   1 &amp; 0 &amp; \ldots &amp; 0 &amp; 0 \\
   0 &amp; 1 &amp; \ldots &amp; 0 &amp; 0 \\
   \vdots &amp; \vdots &amp; \ldots &amp; \vdots &amp; \vdots \\
   0 &amp; 0 &amp; \ldots &amp; 1 &amp; 0 \\
-\end{bmatrix}}_{A'}
+\end{bmatrix}}_{\mathbf{F}}
 \underbrace{
 \begin{bmatrix}
   y_t - \mu \\
   y_{t-1} - \mu \\
   \vdots \\
   y_{t-p+1} - \mu
-\end{bmatrix}}_{X_t} +
+\end{bmatrix}}_{\xi_t} +
 \underbrace{\begin{bmatrix}
   \epsilon_{t+1} \\
   0 \\
   \vdots \\
   0
-\end{bmatrix}}_{V_t}
+\end{bmatrix}}_{\mathbf{V}_t}
 \]</span></p>
-<p>(<em>State Equation</em>)</p>
+<p>(<em>Observation Equation</em>)</p>
 <p><span class="math display">\[
 \underbrace{
-y_t}_{Y} = \underbrace{\mu}_{X} + \underbrace{\begin{bmatrix}1 &amp; 0 &amp; \ldots &amp; 0\end{bmatrix}}_{H'}\underbrace{\begin{bmatrix}
+y_t}_{y_t} = \underbrace{\mu}_{\mathbf{A}'}\underbrace{1}_{x_t} + \underbrace{\begin{bmatrix}1 &amp; 0 &amp; \ldots &amp; 0\end{bmatrix}}_{H'}\underbrace{\begin{bmatrix}
 y_t - \mu \\
 y_{t-1} \mu \\
 \vdots \\
 y_{t-p+1} - \mu
-\end{bmatrix}}_{\xi_t}
+\end{bmatrix}}_{\xi_t} + \underbrace{0}_{w_t}
 \]</span></p>
+</section>
+<section class="slide level2">
+
+<p>Considere agora, um processo MA(1):</p>
+<p><span class="math display">\[
+y_t = \mu + \epsilon_t + \theta\epsilon_{t-1}
+\]</span></p>
+<p>Podemos também escrever esse modelo na forma de espaço de estado da seguinte maneira:</p>
+</section>
+<section class="slide level2">
+
+<p>(<em>State Equation</em>) <span class="math display">\[
+\begin{bmatrix}
+  \epsilon_{t+1} \\
+  \epsilon_{t}
+\end{bmatrix} =
+\begin{bmatrix}
+  0 &amp; 0 \\
+  1 &amp; 0
+\end{bmatrix}\begin{bmatrix}
+  \epsilon_{t} \\
+  \epsilon_{t-1}
+\end{bmatrix} +
+\begin{bmatrix}
+  \epsilon_{t + 1} \\
+  0
+\end{bmatrix}
+\]</span></p>
+<p>(<em>Observation Equation</em>) <span class="math display">\[
+y_t = \mu + \begin{bmatrix}
+  1 &amp; \theta
+\end{bmatrix}
+\begin{bmatrix}
+  \epsilon_t \\
+  \epsilon_{t-1}
+\end{bmatrix}
+\]</span></p>
+</section>
+<section class="slide level2">
+
+<p>(<em>State Equation</em>)</p>
+<p><span class="math display">\[
+\underbrace{\begin{bmatrix}
+  \epsilon_{t+1} \\
+  \epsilon_{t}
+\end{bmatrix}}_{\xi_{t+1}} =
+\underbrace{\begin{bmatrix}
+  0 &amp; 0 \\
+  1 &amp; 0
+\end{bmatrix}}_{\mathbf{F}}\underbrace{\begin{bmatrix}
+  \epsilon_{t} \\
+  \epsilon_{t-1}
+\end{bmatrix}}_{\xi_t} +
+\underbrace{\begin{bmatrix}
+  \epsilon_{t + 1} \\
+  0
+\end{bmatrix}}_{v_t}
+\]</span></p>
+<p>(<em>Observation Equation</em>)</p>
+<p><span class="math display">\[
+\underbrace{y_t}_{y_t} = \underbrace{\mu}_{\mathbf{A}'}\underbrace{1}_{x_t} + \underbrace{\begin{bmatrix}
+  1 &amp; \theta
+\end{bmatrix}}_{\mathbf{H}}
+\underbrace{\begin{bmatrix}
+  \epsilon_t \\
+  \epsilon_{t-1}
+\end{bmatrix}}_{\xi_t} + \underbrace{0}_{w_t}
+\]</span></p>
+</section>
+<section class="slide level2">
+
+<p>De modo geral, um modelo ARMA(p,q) dado da forma:</p>
+<p><span class="math display">\[
+y_t - \mu = \phi_1(y_{t-1} - \mu) + \phi_2(y_{t-2} - \mu) + \ldots + \phi_r(y_{t-r} - \mu) + \epsilon_t + \theta_1\epsilon_{t-1} + \theta_2\epsilon_{t-2} + \ldots + \theta_{r-1}\epsilon_{t-r+1}
+\]</span></p>
+<p>Onde <span class="math inline">\(r \equiv \max\{p, q + 1\}\)</span>. Além disso, <span class="math inline">\(\phi_j = 0, j &gt; p\)</span> e <span class="math inline">\(\theta_j = 0, j &gt; q\)</span>.</p>
+<p>Chegamos na seguinte representação:</p>
+</section>
+<section class="slide level2">
+
+<p>(<em>State Equation</em>)</p>
+<p><span class="math display">\[
+\xi_{t+1} = \begin{bmatrix}
+  \phi_1 &amp; \phi_2 &amp; \ldots &amp; \phi_{r-1} &amp; \phi_r \\
+  1 &amp; 0 &amp; \ldots &amp; 0 &amp; 0 \\
+  0 &amp; 1 &amp; \ldots &amp; 0 &amp; 0 \\
+  \vdots &amp; \vdots &amp; \ldots &amp; \vdots &amp; \vdots \\
+  0 &amp; 0 &amp; \ldots &amp; 1 &amp; 0 \\
+\end{bmatrix}\xi_t + \begin{bmatrix}
+  \epsilon_{t+1} \\
+  0 \\
+  \vdots \\
+  0
+\end{bmatrix}
+\]</span></p>
+<p>(<em>Observation Equation</em>)</p>
+<p><span class="math display">\[
+y_t = \mu + \begin{bmatrix}
+  1 &amp; \theta_1 &amp; \theta_2 &amp; \ldots &amp; \theta_{r-1}
+\end{bmatrix}\xi_t
+\]</span></p>
+</section>
+<section class="slide level2">
+
+<p>Veja que, se definirmos <span class="math inline">\(\xi_{j,t}\)</span> como o <span class="math inline">\(j\)</span>-ésimo elemento de <span class="math inline">\(xi_t\)</span>, ou seja:</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+  \xi_{1,t+1} \\
+  \xi_{2, t+1} \\
+  \xi_{3, t+1} \\
+  \vdots \\
+  \xi_{r, t+1}
+\end{bmatrix}
+= \begin{bmatrix}
+  \phi_1 &amp; \phi_2 &amp; \ldots &amp; \phi_{r-1} &amp; \phi_r \\
+  1 &amp; 0 &amp; \ldots &amp; 0 &amp; 0 \\
+  0 &amp; 1 &amp; \ldots &amp; 0 &amp; 0 \\
+  \vdots &amp; \vdots &amp; \ldots &amp; \vdots &amp; \vdots \\
+  0 &amp; 0 &amp; \ldots &amp; 1 &amp; 0 \\
+\end{bmatrix}\begin{bmatrix}
+  \xi_{1,t} \\
+  \xi_{2, t} \\
+  \xi_{3, t} \\
+  \vdots \\
+  \xi_{r, t}
+\end{bmatrix}
++ \begin{bmatrix}
+  \epsilon_{t+1} \\
+  0 \\
+  \vdots \\
+  0
+\end{bmatrix}
+\]</span></p>
+<p>Chegamos que:</p>
+<p><span class="math display">\[
+\xi_{2,t+1} = \xi_{1,t} \\
+\xi_{3,t+1} = \xi_{2,t} = \xi_{1,t-1} \\
+\vdots \\
+\xi_{j,t+1} = L^{j-1}\xi_{1,t+1}
+\]</span></p>
+</section>
+<section class="slide level2">
+
+<p>Daí, a primeira linha da equação fica:</p>
+<p><span class="math display">\[
+\xi_{1,t+1} = (\phi_1 + \phi_2L + \phi_3L^2 + \ldots + \phi_rL^{r-1})\xi_{1,t} + \epsilon_{t+1}
+\]</span></p>
+<p>que pode ser escrita como</p>
+<p><span class="math display">\[
+(1 - \phi_1L - \phi_2L^2 - \ldots - \phi_rL^r)\xi_{1,t+1} = \epsilon_{t+1}
+\]</span></p>
+<p>Seguindo a mesma lógica, a equação de observação fica:</p>
+<p><span class="math display">\[
+y_t = \mu + (1 + \theta_1L + \theta_2L^2 + \ldots + \theta_{r-1}L^{r-1})\xi_{1,t}
+\]</span></p>
+<p>Com isso, chegamos finalmente em:</p>
+<p><span class="math display">\[
+(1 + \theta_1L + \theta_2L^2 + \ldots + \theta_{r-1}L^{r-1})(y_t - \mu) = (\phi_1 + \phi_2L + \phi_3L^2 + \ldots + \phi_rL^{r-1})\epsilon_t
+\]</span></p>
+<p>que corresponde ao modelo ARMA(p,q) onde <span class="math inline">\(r \equiv \max\{p, q+1\}\)</span></p>
+<p><strong>footnote: Mais exemplos <a href="oi">aqui</a></strong></p>
 </section></section>
 <section>
 <section id="sec-kalman-recursion" class="title-slide slide level1 center">
@@ -500,19 +661,115 @@ y_{t-p+1} - \mu
 </section>
 <section id="kalman-recursion" class="slide level2">
 <h2>Kalman Recursion</h2>
-<p>A recursão de Kalman é um método iterativo e recursivo para encontrar o melhor estimador linear de <span class="math inline">\(\xi_t\)</span>, utilizando toda informação disponível até o momento.</p>
+<p>A recursão de Kalman é um método iterativo e recursivo para encontrar o melhor estimador linear de <span class="math inline">\(\xi_t\)</span>, utilizando toda informação disponível até o momento (<span class="math inline">\(\mathcal{F}_t = (y_t', y_{t-1}', \ldots, y_1', x_t', x_{t-1}', \ldots, x_1')\)</span>).</p>
 <p>Nesse sentido, em geral, o interesse está em um desses 3 casos:</p>
 <ul>
-<li class="fragment"><p><em>filter</em> (<span class="math inline">\(\hat\xi_{t|t}\)</span>)</p></li>
 <li class="fragment"><p><em>prediction</em> (<span class="math inline">\(\hat\xi_{t+1|t}\)</span>)</p></li>
+<li class="fragment"><p><em>filter</em> (<span class="math inline">\(\hat\xi_{t|t}\)</span>)</p></li>
 <li class="fragment"><p><em>smoothing</em> (<span class="math inline">\(\hat\xi_{\tau|t}, \tau &lt; t\)</span>)</p></li>
 </ul>
 </section>
-<section id="sec-kalman-filter" class="slide level2">
-<h2>Kalman Filter</h2>
-</section>
 <section id="sec-kalman-prediction" class="slide level2">
 <h2>Kalman Prediction</h2>
+<div class="fragment">
+<p>O interesse é construir previsões lineares para <span class="math inline">\(\xi_t\)</span> dado toda informação passada, ou seja:</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\hat\xi_{t+1|t} \equiv \hat E(\xi_{t+1}|\mathcal{F}_t)
+\]</span></p>
+</div>
+<div class="fragment">
+<p>cuja matriz de erro quadrático médio associada é dada por:</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\mathbf{P}_{t+1|t} \equiv \text{E}\left[(\xi_{t+1} - \hat\xi_{t+1})(\xi_{t+1} - \hat\xi_{t+1})'\right]
+\]</span></p>
+</div>
+<div class="fragment">
+<p>Os passos para construir o algoritmo são:</p>
+<div class="columns">
+<div class="column">
+<ol type="1">
+<li class="fragment">Definir <span class="math inline">\(\hat\xi_{1|0}\)</span> e <span class="math inline">\(\mathbf{P}_{1|0}\)</span></li>
+<li class="fragment">Prever <span class="math inline">\(\hat y_{t|t-1}\)</span></li>
+</ol>
+</div><div class="column">
+<ol start="3" type="1">
+<li class="fragment">Atualizar <span class="math inline">\(\hat\xi_{t|t}\)</span></li>
+<li class="fragment">Prever <span class="math inline">\(\hat\xi_{t+1|t}\)</span></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="passo-1---chute-inical">Passo 1 - chute inical</h3>
+<p>Definimos <span class="math inline">\(\hat\xi_{1|0}\)</span> e <span class="math inline">\(\mathbf{P}_{1|0}\)</span> como:</p>
+<p><span class="math display">\[
+\hat\xi_{1|0} = \text{E}(\xi_1) \\
+\mathbf{P}_{1|0} = \text{E}\{[\xi_1 - \text{E}(\xi_1)][\xi_1 - \text{E}(\xi_1)]'\}
+\]</span></p>
+<p>Caso os autovalores de <span class="math inline">\(\mathbf{F}\)</span> estejam todos dentro do circulo unitário, podemos começar a recursão utilizando:</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(\hat\xi_{1|0} = \mathbf{0}\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\text{vec}(\mathbf{P}_{1|0}) = [\mathbf{I}_{r^2} - (\mathbf{F}\otimes\mathbf{F})]^{-1}\cdot\text{vec}(\mathbf{Q})\)</span></p></li>
+</ul>
+<p>Caso os autovalores de <span class="math inline">\(\mathbf{F}\)</span> não estejamo no círculo unitário, definimos <span class="math inline">\(\hat\xi_(1|0)\)</span> como o melhor chute inicial que tivermos. E definimos <span class="math inline">\(\mathbf{P}_{1|0}\)</span> como a confiança que temos nesse chute.</p>
+</section>
+<section class="slide level2">
+
+<h3 id="passo-2---prever-hat-y_tt-1">Passo 2 - prever <span class="math inline">\(\hat y_{t|t-1}\)</span></h3>
+<p>Queremos encontrar <span class="math inline">\(\hat y_{t|t-1} \equiv \hat E(y_t|x_t, \mathcal{F}_{t-1})\)</span>. Para isso, usamos a representação em estado de espaço:</p>
+<p><span class="math display">\[
+\hat E(y_t|x_t, \xi_t) = \mathbf{A}'x_t + \mathbf{H}'\xi_t \\
+\implies \hat y_{t|t-1} = \mathbf{A}'x_t + \mathbf{H}'\hat E(\xi_t|x_t,\mathcal{F}_{t-1}) = \mathbf{A}'x_t + \mathbf{H}'\hat\xi_{t|t-1}
+\]</span></p>
+<p>O erro da predição é dado por:</p>
+<p><span class="math display">\[
+E\left[(y_t - \hat y_{t|t-1})(y_t - \hat y_{t|t-1})'\right] = E\left[\mathbf{H}'(\xi_t - \hat\xi_{t|t-1})(\xi_t - \hat\xi_{t|t-1})'\mathbf{H}\right] + E[\mathbf{w}_t\mathbf{w}_t'] \\
+= \mathbf{H}'\mathbf{P}_{t|t-1}\mathbf{H} + \mathbf{R}
+\]</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="passo-3---atualizar-hatxi_tt">Passo 3 - Atualizar <span class="math inline">\(\hat\xi_{t|t}\)</span></h3>
+<p>Agora, atualizamos o valor de <span class="math inline">\(\xi_t\)</span> dado a observação de <span class="math inline">\(y_t\)</span>:</p>
+<p><span class="math display">\[
+\hat\xi_{t|t} = \hat E(\xi_t|y_t, x_t, \mathcal{F}_{t-1}) = \hat E(\xi_t|\mathcal{F}_t)
+\]</span></p>
+<p>Podemos usar a fórmula para atualizar uma projeção linear <strong>QUAL Q É???</strong>, para encontrar:</p>
+<p><span class="math display">\[
+\hat\xi_{t|t} = \hat\xi_{t|t-1} + \{E[(\xi_{t} - \hat\xi_{t|t-1})(y_t - \hat y_{t|t-1})']\} \times \{E[(y_t - \hat y_{t|t-1})(y_t - \hat y_{t|t-1})']\}^{-1} \\ \times (y_t - \hat y_{t|t-1}) \\
+\implies \hat\xi_{t|t} = \hat\xi_{t|t-1} + \mathbf{P}_{t|t-1}\mathbf{H}(\mathbf{H}'\mathbf{P}_{t|t-1}\mathbf{H} + \mathbf{R})^{-1}(y_t - \mathbf{A}'x_t - \mathbf{H}'\hat\xi_{t|t-1})
+\]</span></p>
+<p>Com o erro associado:</p>
+<p><span class="math display">\[
+\mathbf{P}_{t|t} = \mathbf{P}_{t|t-1} - \mathbf{P}_{t|t-1}\mathbf{H}(\mathbf{H}'\mathbf{P}_{t|t-1}\mathbf{H} + \mathbf{R})^{-1}\mathbf{H}'\mathbf{P}_{t|t-1}
+\]</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="passo-4---prever-hatxi_t1t">Passo 4 - Prever <span class="math inline">\(\hat\xi_{t+1|t}\)</span></h3>
+<p>Agora, usamos a equação de estado para prever <span class="math inline">\(\hat\xi_{t+1|t}\)</span></p>
+<p><span class="math display">\[
+\hat\xi_{t+1|t} = \mathbf{F}\xi_{t|t} + \mathbf{0} \\
+= \mathbf{F}\hat\xi_{t|t-1} + \mathbf{F}\mathbf{P}_{t|t-1}\mathbf{H}(\mathbf{H}'\mathbf{P}_{t|t-1}\mathbf{H} + \mathbf{R})^{-1}(y_t - \mathbf{A}'x_t - \mathbf{H}'\hat\xi_{t|t-1})
+\]</span></p>
+<p>Com erro associado:</p>
+<p><span class="math display">\[
+\mathbf{P}_{t|t+1} = \mathbf{F}\mathbf{P}_{t|t}\mathbf{F}' + \mathbf{Q} \\
+= \mathbf{F}[\mathbf{P}_{t|t-1} - \mathbf{P}_{t|t-1}\mathbf{H}(\mathbf{H}'\mathbf{P}_{t|t-1}\mathbf{H} + \mathbf{R})^{-1}\mathbf{H}'\mathbf{P}_{t|t-1}]\mathbf{F}' + \mathbf{Q}
+\]</span></p>
+<p><strong>Observação:</strong> Podemos definir a <em>matrix de ganho</em> <span class="math inline">\(\mathbf{K}_t\)</span> como:</p>
+<p><span class="math display">\[
+\mathbf{K}_t \equiv \mathbf{F}\mathbf{P}_{t|t-1}\mathbf{H}(\mathbf{H}'\mathbf{P}_{t|t-1}\mathbf{H} + \mathbf{R})^{-1}
+\]</span></p>
+</section>
+<section id="sec-kalman-filter" class="slide level2">
+<h2>Kalman Filter</h2>
 </section>
 <section id="sec-kalman-smoothing" class="slide level2">
 <h2>Kalman Smoothing</h2>

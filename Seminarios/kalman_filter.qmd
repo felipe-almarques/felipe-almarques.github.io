@@ -90,8 +90,7 @@ Podemos escrever esse modelo na forma de espaço de estado como segue:
 
 ---
 
-
-(*Observation Equation*)
+(*State Equation*)
 $$
 \begin{bmatrix}
   y_{t+1} - \mu \\
@@ -121,7 +120,7 @@ $$
 $$
 
 
-(*State Equation*)
+(*Observation Equation*)
 
 $$
 y_t = \mu + \begin{bmatrix}1 & 0 & \ldots & 0\end{bmatrix}\begin{bmatrix}
@@ -134,7 +133,7 @@ $$
 
 ---
 
-(*Observation Equation*)
+(*State Equation*)
 $$
 \underbrace{
 \begin{bmatrix}
@@ -142,63 +141,366 @@ $$
   y_t - \mu \\
   \vdots \\
   y_{t-p+2} - \mu
-\end{bmatrix}}_{Y} = 
+\end{bmatrix}}_{\xi_{t+1}} = 
 \underbrace{\begin{bmatrix}
   \phi_1 & \phi_2 & \ldots & \phi_{p-1} & \phi_p \\
   1 & 0 & \ldots & 0 & 0 \\
   0 & 1 & \ldots & 0 & 0 \\ 
   \vdots & \vdots & \ldots & \vdots & \vdots \\
   0 & 0 & \ldots & 1 & 0 \\
-\end{bmatrix}}_{A'}
+\end{bmatrix}}_{\mathbf{F}}
 \underbrace{
 \begin{bmatrix}
   y_t - \mu \\
   y_{t-1} - \mu \\
   \vdots \\
   y_{t-p+1} - \mu
-\end{bmatrix}}_{X_t} +
+\end{bmatrix}}_{\xi_t} +
 \underbrace{\begin{bmatrix}
   \epsilon_{t+1} \\
   0 \\
   \vdots \\
   0
-\end{bmatrix}}_{V_t}
+\end{bmatrix}}_{\mathbf{V}_t}
 $$
 
 
-(*State Equation*)
+(*Observation Equation*)
 
 $$
 \underbrace{
-y_t}_{Y} = \underbrace{\mu}_{X} + \underbrace{\begin{bmatrix}1 & 0 & \ldots & 0\end{bmatrix}}_{H'}\underbrace{\begin{bmatrix}
+y_t}_{y_t} = \underbrace{\mu}_{\mathbf{A}'}\underbrace{1}_{x_t} + \underbrace{\begin{bmatrix}1 & 0 & \ldots & 0\end{bmatrix}}_{H'}\underbrace{\begin{bmatrix}
 y_t - \mu \\
 y_{t-1} \mu \\
 \vdots \\
 y_{t-p+1} - \mu
-\end{bmatrix}}_{\xi_t}
+\end{bmatrix}}_{\xi_t} + \underbrace{0}_{w_t}
 $$
+
+---
+
+Considere agora, um processo MA(1):
+
+$$
+y_t = \mu + \epsilon_t + \theta\epsilon_{t-1}
+$$
+
+Podemos também escrever esse modelo na forma de espaço de estado da seguinte maneira:
+
+---
+
+(*State Equation*)
+$$
+\begin{bmatrix}
+  \epsilon_{t+1} \\
+  \epsilon_{t}
+\end{bmatrix} =
+\begin{bmatrix}
+  0 & 0 \\
+  1 & 0
+\end{bmatrix}\begin{bmatrix}
+  \epsilon_{t} \\
+  \epsilon_{t-1}
+\end{bmatrix} +
+\begin{bmatrix}
+  \epsilon_{t + 1} \\
+  0
+\end{bmatrix}
+$$
+
+(*Observation Equation*)
+$$
+y_t = \mu + \begin{bmatrix}
+  1 & \theta
+\end{bmatrix}
+\begin{bmatrix}
+  \epsilon_t \\
+  \epsilon_{t-1}
+\end{bmatrix}
+$$
+
+---
+
+(*State Equation*)
+
+$$
+\underbrace{\begin{bmatrix}
+  \epsilon_{t+1} \\
+  \epsilon_{t}
+\end{bmatrix}}_{\xi_{t+1}} =
+\underbrace{\begin{bmatrix}
+  0 & 0 \\
+  1 & 0
+\end{bmatrix}}_{\mathbf{F}}\underbrace{\begin{bmatrix}
+  \epsilon_{t} \\
+  \epsilon_{t-1}
+\end{bmatrix}}_{\xi_t} +
+\underbrace{\begin{bmatrix}
+  \epsilon_{t + 1} \\
+  0
+\end{bmatrix}}_{v_t}
+$$
+
+(*Observation Equation*)
+
+$$
+\underbrace{y_t}_{y_t} = \underbrace{\mu}_{\mathbf{A}'}\underbrace{1}_{x_t} + \underbrace{\begin{bmatrix}
+  1 & \theta
+\end{bmatrix}}_{\mathbf{H}}
+\underbrace{\begin{bmatrix}
+  \epsilon_t \\
+  \epsilon_{t-1}
+\end{bmatrix}}_{\xi_t} + \underbrace{0}_{w_t}
+$$
+
+---
+
+De modo geral, um modelo ARMA(p,q) dado da forma:
+
+$$
+y_t - \mu = \phi_1(y_{t-1} - \mu) + \phi_2(y_{t-2} - \mu) + \ldots + \phi_r(y_{t-r} - \mu) + \epsilon_t + \theta_1\epsilon_{t-1} + \theta_2\epsilon_{t-2} + \ldots + \theta_{r-1}\epsilon_{t-r+1}
+$$
+
+Onde $r \equiv \max\{p, q + 1\}$. Além disso, $\phi_j = 0, j > p$ e $\theta_j = 0, j > q$.
+
+Chegamos na seguinte representação:
+
+---
+
+(*State Equation*)
+
+$$
+\xi_{t+1} = \begin{bmatrix}
+  \phi_1 & \phi_2 & \ldots & \phi_{r-1} & \phi_r \\
+  1 & 0 & \ldots & 0 & 0 \\
+  0 & 1 & \ldots & 0 & 0 \\ 
+  \vdots & \vdots & \ldots & \vdots & \vdots \\
+  0 & 0 & \ldots & 1 & 0 \\
+\end{bmatrix}\xi_t + \begin{bmatrix}
+  \epsilon_{t+1} \\
+  0 \\
+  \vdots \\
+  0
+\end{bmatrix}
+$$
+
+(*Observation Equation*)
+
+$$
+y_t = \mu + \begin{bmatrix}
+  1 & \theta_1 & \theta_2 & \ldots & \theta_{r-1}
+\end{bmatrix}\xi_t
+$$
+
+---
+
+Veja que, se definirmos $\xi_{j,t}$ como o $j$-ésimo elemento de $xi_t$, ou seja:
+
+$$
+\begin{bmatrix}
+  \xi_{1,t+1} \\
+  \xi_{2, t+1} \\
+  \xi_{3, t+1} \\
+  \vdots \\
+  \xi_{r, t+1}
+\end{bmatrix}
+= \begin{bmatrix}
+  \phi_1 & \phi_2 & \ldots & \phi_{r-1} & \phi_r \\
+  1 & 0 & \ldots & 0 & 0 \\
+  0 & 1 & \ldots & 0 & 0 \\ 
+  \vdots & \vdots & \ldots & \vdots & \vdots \\
+  0 & 0 & \ldots & 1 & 0 \\
+\end{bmatrix}\begin{bmatrix}
+  \xi_{1,t} \\
+  \xi_{2, t} \\
+  \xi_{3, t} \\
+  \vdots \\
+  \xi_{r, t}
+\end{bmatrix} 
++ \begin{bmatrix}
+  \epsilon_{t+1} \\
+  0 \\
+  \vdots \\
+  0
+\end{bmatrix}
+$$
+
+Chegamos que:
+
+$$
+\xi_{2,t+1} = \xi_{1,t} \\
+\xi_{3,t+1} = \xi_{2,t} = \xi_{1,t-1} \\
+\vdots \\
+\xi_{j,t+1} = L^{j-1}\xi_{1,t+1}
+$$
+
+---
+
+Daí, a primeira linha da equação fica:
+
+$$
+\xi_{1,t+1} = (\phi_1 + \phi_2L + \phi_3L^2 + \ldots + \phi_rL^{r-1})\xi_{1,t} + \epsilon_{t+1}
+$$
+
+que pode ser escrita como
+
+$$
+(1 - \phi_1L - \phi_2L^2 - \ldots - \phi_rL^r)\xi_{1,t+1} = \epsilon_{t+1}
+$$
+
+Seguindo a mesma lógica, a equação de observação fica:
+
+$$
+y_t = \mu + (1 + \theta_1L + \theta_2L^2 + \ldots + \theta_{r-1}L^{r-1})\xi_{1,t}
+$$
+
+Com isso, chegamos finalmente em:
+
+$$
+(1 + \theta_1L + \theta_2L^2 + \ldots + \theta_{r-1}L^{r-1})(y_t - \mu) = (\phi_1 + \phi_2L + \phi_3L^2 + \ldots + \phi_rL^{r-1})\epsilon_t
+$$
+
+que corresponde ao modelo ARMA(p,q) onde $r \equiv \max\{p, q+1\}$
+
+**footnote: Mais exemplos [aqui](oi)**
 
 # Kalman Recursion {#sec-kalman-recursion}
 
----
-
 ## Kalman Recursion
 
-A recursão de Kalman é um método iterativo e recursivo para encontrar o melhor estimador linear de $\xi_t$, utilizando toda informação disponível até o momento.
+A recursão de Kalman é um método iterativo e recursivo para encontrar o melhor estimador linear de $\xi_t$, utilizando toda informação disponível até o momento ($\mathcal{F}_t = (y_t', y_{t-1}', \ldots, y_1', x_t', x_{t-1}', \ldots, x_1')$).
 
 Nesse sentido, em geral, o interesse está em um desses 3 casos:
 
--   *filter* ($\hat\xi_{t|t}$)
-
 -   *prediction* ($\hat\xi_{t+1|t}$)
+
+-   *filter* ($\hat\xi_{t|t}$)
 
 -   *smoothing* ($\hat\xi_{\tau|t}, \tau < t$)
 
-## Kalman Filter {#sec-kalman-filter}
+## Kalman Prediction {#sec-kalman-prediction}
+
+. . .
+
+O interesse é construir previsões lineares para $\xi_t$ dado toda informação passada, ou seja:
+
+. . .
+
+$$
+\hat\xi_{t+1|t} \equiv \hat E(\xi_{t+1}|\mathcal{F}_t)
+$$
+
+. . .
+
+cuja matriz de erro quadrático médio associada é dada por:
+
+. . .
+
+$$
+\mathbf{P}_{t+1|t} \equiv \text{E}\left[(\xi_{t+1} - \hat\xi_{t+1})(\xi_{t+1} - \hat\xi_{t+1})'\right]
+$$
+
+. . .
+
+Os passos para construir o algoritmo são:
+
+::::{.columns}
+:::{.column}
+1. Definir $\hat\xi_{1|0}$ e $\mathbf{P}_{1|0}$
+2. Prever $\hat y_{t|t-1}$
+:::
+:::{.column}
+3. Atualizar $\hat\xi_{t|t}$
+4. Prever $\hat\xi_{t+1|t}$
+:::
+::::
 
 ---
 
-## Kalman Prediction {#sec-kalman-prediction}
+### Passo 1 - chute inical
+
+Definimos $\hat\xi_{1|0}$ e $\mathbf{P}_{1|0}$ como:
+
+$$
+\hat\xi_{1|0} = \text{E}(\xi_1) \\
+\mathbf{P}_{1|0} = \text{E}\{[\xi_1 - \text{E}(\xi_1)][\xi_1 - \text{E}(\xi_1)]'\}
+$$
+
+Caso os autovalores de $\mathbf{F}$ estejam todos dentro do circulo unitário, podemos começar a recursão utilizando:
+
+- $\hat\xi_{1|0} = \mathbf{0}$
+
+- $\text{vec}(\mathbf{P}_{1|0}) = [\mathbf{I}_{r^2} - (\mathbf{F}\otimes\mathbf{F})]^{-1}\cdot\text{vec}(\mathbf{Q})$
+
+Caso os autovalores de $\mathbf{F}$ não estejamo no círculo unitário, definimos $\hat\xi_(1|0)$ como o melhor chute inicial que tivermos. E definimos $\mathbf{P}_{1|0}$ como a confiança que temos nesse chute.
+
+---
+
+### Passo 2 - prever $\hat y_{t|t-1}$
+
+Queremos encontrar $\hat y_{t|t-1} \equiv \hat E(y_t|x_t, \mathcal{F}_{t-1})$. Para isso, usamos a representação em estado de espaço:
+
+$$
+\hat E(y_t|x_t, \xi_t) = \mathbf{A}'x_t + \mathbf{H}'\xi_t \\
+\implies \hat y_{t|t-1} = \mathbf{A}'x_t + \mathbf{H}'\hat E(\xi_t|x_t,\mathcal{F}_{t-1}) = \mathbf{A}'x_t + \mathbf{H}'\hat\xi_{t|t-1} 
+$$
+
+O erro da predição é dado por:
+
+$$
+E\left[(y_t - \hat y_{t|t-1})(y_t - \hat y_{t|t-1})'\right] = E\left[\mathbf{H}'(\xi_t - \hat\xi_{t|t-1})(\xi_t - \hat\xi_{t|t-1})'\mathbf{H}\right] + E[\mathbf{w}_t\mathbf{w}_t'] \\
+= \mathbf{H}'\mathbf{P}_{t|t-1}\mathbf{H} + \mathbf{R}
+$$
+
+---
+
+### Passo 3 - Atualizar $\hat\xi_{t|t}$
+
+Agora, atualizamos o valor de $\xi_t$ dado a observação de $y_t$:
+
+$$
+\hat\xi_{t|t} = \hat E(\xi_t|y_t, x_t, \mathcal{F}_{t-1}) = \hat E(\xi_t|\mathcal{F}_t)
+$$
+
+Podemos usar a fórmula para atualizar uma projeção linear **QUAL Q É???**, para encontrar:
+
+$$
+\hat\xi_{t|t} = \hat\xi_{t|t-1} + \{E[(\xi_{t} - \hat\xi_{t|t-1})(y_t - \hat y_{t|t-1})']\} \times \{E[(y_t - \hat y_{t|t-1})(y_t - \hat y_{t|t-1})']\}^{-1} \\ \times (y_t - \hat y_{t|t-1}) \\
+\implies \hat\xi_{t|t} = \hat\xi_{t|t-1} + \mathbf{P}_{t|t-1}\mathbf{H}(\mathbf{H}'\mathbf{P}_{t|t-1}\mathbf{H} + \mathbf{R})^{-1}(y_t - \mathbf{A}'x_t - \mathbf{H}'\hat\xi_{t|t-1})
+$$
+
+Com o erro associado:
+
+$$
+\mathbf{P}_{t|t} = \mathbf{P}_{t|t-1} - \mathbf{P}_{t|t-1}\mathbf{H}(\mathbf{H}'\mathbf{P}_{t|t-1}\mathbf{H} + \mathbf{R})^{-1}\mathbf{H}'\mathbf{P}_{t|t-1}
+$$
+
+---
+
+### Passo 4 - Prever $\hat\xi_{t+1|t}$
+
+Agora, usamos a equação de estado para prever $\hat\xi_{t+1|t}$
+
+$$
+\hat\xi_{t+1|t} = \mathbf{F}\xi_{t|t} + \mathbf{0} \\
+= \mathbf{F}\hat\xi_{t|t-1} + \mathbf{F}\mathbf{P}_{t|t-1}\mathbf{H}(\mathbf{H}'\mathbf{P}_{t|t-1}\mathbf{H} + \mathbf{R})^{-1}(y_t - \mathbf{A}'x_t - \mathbf{H}'\hat\xi_{t|t-1})
+$$
+
+Com erro associado:
+
+$$
+\mathbf{P}_{t|t+1} = \mathbf{F}\mathbf{P}_{t|t}\mathbf{F}' + \mathbf{Q} \\
+= \mathbf{F}[\mathbf{P}_{t|t-1} - \mathbf{P}_{t|t-1}\mathbf{H}(\mathbf{H}'\mathbf{P}_{t|t-1}\mathbf{H} + \mathbf{R})^{-1}\mathbf{H}'\mathbf{P}_{t|t-1}]\mathbf{F}' + \mathbf{Q}
+$$
+
+**Observação:** Podemos definir a *matrix de ganho* $\mathbf{K}_t$ como:
+
+$$
+\mathbf{K}_t \equiv \mathbf{F}\mathbf{P}_{t|t-1}\mathbf{H}(\mathbf{H}'\mathbf{P}_{t|t-1}\mathbf{H} + \mathbf{R})^{-1}
+$$
+
+## Kalman Filter {#sec-kalman-filter}
+
 
 ---
 
