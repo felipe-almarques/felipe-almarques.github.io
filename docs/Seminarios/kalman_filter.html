@@ -453,6 +453,45 @@ y_{t-p+1} - \mu
 </section>
 <section class="slide level2">
 
+<p>(<em>Observation Equation</em>) <span class="math display">\[
+\underbrace{
+\begin{bmatrix}
+  y_{t+1} - \mu \\
+  y_t - \mu \\
+  \vdots \\
+  y_{t-p+2} - \mu
+\end{bmatrix}}_{Y} =
+\underbrace{\begin{bmatrix}
+  \phi_1 &amp; \phi_2 &amp; \ldots &amp; \phi_{p-1} &amp; \phi_p \\
+  1 &amp; 0 &amp; \ldots &amp; 0 &amp; 0 \\
+  0 &amp; 1 &amp; \ldots &amp; 0 &amp; 0 \\
+  \vdots &amp; \vdots &amp; \ldots &amp; \vdots &amp; \vdots \\
+  0 &amp; 0 &amp; \ldots &amp; 1 &amp; 0 \\
+\end{bmatrix}}_{A'}
+\underbrace{
+\begin{bmatrix}
+  y_t - \mu \\
+  y_{t-1} - \mu \\
+  \vdots \\
+  y_{t-p+1} - \mu
+\end{bmatrix}}_{X_t} +
+\underbrace{\begin{bmatrix}
+  \epsilon_{t+1} \\
+  0 \\
+  \vdots \\
+  0
+\end{bmatrix}}_{V_t}
+\]</span></p>
+<p>(<em>State Equation</em>)</p>
+<p><span class="math display">\[
+\underbrace{
+y_t}_{Y} = \underbrace{\mu}_{X} + \underbrace{\begin{bmatrix}1 &amp; 0 &amp; \ldots &amp; 0\end{bmatrix}}_{H'}\underbrace{\begin{bmatrix}
+y_t - \mu \\
+y_{t-1} \mu \\
+\vdots \\
+y_{t-p+1} - \mu
+\end{bmatrix}}_{\xi_t}
+\]</span></p>
 </section></section>
 <section>
 <section id="sec-kalman-recursion" class="title-slide slide level1 center">

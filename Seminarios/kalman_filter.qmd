@@ -134,6 +134,50 @@ $$
 
 ---
 
+(*Observation Equation*)
+$$
+\underbrace{
+\begin{bmatrix}
+  y_{t+1} - \mu \\
+  y_t - \mu \\
+  \vdots \\
+  y_{t-p+2} - \mu
+\end{bmatrix}}_{Y} = 
+\underbrace{\begin{bmatrix}
+  \phi_1 & \phi_2 & \ldots & \phi_{p-1} & \phi_p \\
+  1 & 0 & \ldots & 0 & 0 \\
+  0 & 1 & \ldots & 0 & 0 \\ 
+  \vdots & \vdots & \ldots & \vdots & \vdots \\
+  0 & 0 & \ldots & 1 & 0 \\
+\end{bmatrix}}_{A'}
+\underbrace{
+\begin{bmatrix}
+  y_t - \mu \\
+  y_{t-1} - \mu \\
+  \vdots \\
+  y_{t-p+1} - \mu
+\end{bmatrix}}_{X_t} +
+\underbrace{\begin{bmatrix}
+  \epsilon_{t+1} \\
+  0 \\
+  \vdots \\
+  0
+\end{bmatrix}}_{V_t}
+$$
+
+
+(*State Equation*)
+
+$$
+\underbrace{
+y_t}_{Y} = \underbrace{\mu}_{X} + \underbrace{\begin{bmatrix}1 & 0 & \ldots & 0\end{bmatrix}}_{H'}\underbrace{\begin{bmatrix}
+y_t - \mu \\
+y_{t-1} \mu \\
+\vdots \\
+y_{t-p+1} - \mu
+\end{bmatrix}}_{\xi_t}
+$$
+
 # Kalman Recursion {#sec-kalman-recursion}
 
 ---
