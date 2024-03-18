@@ -649,7 +649,8 @@ y_t = \mu + (1 + \theta_1L + \theta_2L^2 + \ldots + \theta_{r-1}L^{r-1})\xi_{1,t
 \]</span></p>
 <p>Com isso, chegamos finalmente em:</p>
 <p><span class="math display">\[
-(1 + \theta_1L + \theta_2L^2 + \ldots + \theta_{r-1}L^{r-1})(y_t - \mu) = (\phi_1 + \phi_2L + \phi_3L^2 + \ldots + \phi_rL^{r-1})\epsilon_t
+(\phi_1 + \phi_2L + \phi_3L^2 + \ldots + \phi_rL^{r-1})(y_t - \mu) = \\
+(1 + \theta_1L + \theta_2L^2 + \ldots + \theta_{r-1}L^{r-1})\epsilon_t
 \]</span></p>
 <p>que corresponde ao modelo ARMA(p,q) onde <span class="math inline">\(r \equiv \max\{p, q+1\}\)</span></p>
 <p><strong>footnote: Mais exemplos <a href="oi">aqui</a></strong></p>
@@ -664,9 +665,9 @@ y_t = \mu + (1 + \theta_1L + \theta_2L^2 + \ldots + \theta_{r-1}L^{r-1})\xi_{1,t
 <p>A recursão de Kalman é um método iterativo e recursivo para encontrar o melhor estimador linear de <span class="math inline">\(\xi_t\)</span>, utilizando toda informação disponível até o momento (<span class="math inline">\(\mathcal{F}_t = (y_t', y_{t-1}', \ldots, y_1', x_t', x_{t-1}', \ldots, x_1')\)</span>).</p>
 <p>Nesse sentido, em geral, o interesse está em um desses 3 casos:</p>
 <ul>
-<li class="fragment"><p><em>prediction</em> (<span class="math inline">\(\hat\xi_{t+1|t}\)</span>)</p></li>
-<li class="fragment"><p><em>filter</em> (<span class="math inline">\(\hat\xi_{t|t}\)</span>)</p></li>
-<li class="fragment"><p><em>smoothing</em> (<span class="math inline">\(\hat\xi_{\tau|t}, \tau &lt; t\)</span>)</p></li>
+<li class="fragment"><p>predição (<span class="math inline">\(\hat\xi_{t+1|t}\)</span>)</p></li>
+<li class="fragment"><p>filtro (<span class="math inline">\(\hat\xi_{t|t}\)</span>)</p></li>
+<li class="fragment"><p>suavização (<span class="math inline">\(\hat\xi_{\tau|t}, \tau &lt; t\)</span>)</p></li>
 </ul>
 </section>
 <section id="sec-kalman-prediction" class="slide level2">

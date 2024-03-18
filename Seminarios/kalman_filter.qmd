@@ -357,7 +357,8 @@ $$
 Com isso, chegamos finalmente em:
 
 $$
-(1 + \theta_1L + \theta_2L^2 + \ldots + \theta_{r-1}L^{r-1})(y_t - \mu) = (\phi_1 + \phi_2L + \phi_3L^2 + \ldots + \phi_rL^{r-1})\epsilon_t
+(\phi_1 + \phi_2L + \phi_3L^2 + \ldots + \phi_rL^{r-1})(y_t - \mu) = \\
+(1 + \theta_1L + \theta_2L^2 + \ldots + \theta_{r-1}L^{r-1})\epsilon_t
 $$
 
 que corresponde ao modelo ARMA(p,q) onde $r \equiv \max\{p, q+1\}$
@@ -372,11 +373,11 @@ A recursão de Kalman é um método iterativo e recursivo para encontrar o melho
 
 Nesse sentido, em geral, o interesse está em um desses 3 casos:
 
--   *prediction* ($\hat\xi_{t+1|t}$)
+-   predição ($\hat\xi_{t+1|t}$)
 
--   *filter* ($\hat\xi_{t|t}$)
+-   filtro ($\hat\xi_{t|t}$)
 
--   *smoothing* ($\hat\xi_{\tau|t}, \tau < t$)
+-   suavização ($\hat\xi_{\tau|t}, \tau < t$)
 
 ## Kalman Prediction {#sec-kalman-prediction}
 
@@ -482,14 +483,14 @@ $$
 Agora, usamos a equação de estado para prever $\hat\xi_{t+1|t}$
 
 $$
-\hat\xi_{t+1|t} = \mathbf{F}\xi_{t|t} + \mathbf{0} \\
+\hat\xi_{t+1|t} = \mathbf{F}\hat\xi_{t|t} + \mathbf{0} \\
 = \mathbf{F}\hat\xi_{t|t-1} + \mathbf{F}\mathbf{P}_{t|t-1}\mathbf{H}(\mathbf{H}'\mathbf{P}_{t|t-1}\mathbf{H} + \mathbf{R})^{-1}(y_t - \mathbf{A}'x_t - \mathbf{H}'\hat\xi_{t|t-1})
 $$
 
 Com erro associado:
 
 $$
-\mathbf{P}_{t|t+1} = \mathbf{F}\mathbf{P}_{t|t}\mathbf{F}' + \mathbf{Q} \\
+\mathbf{P}_{t+1|t} = \mathbf{F}\mathbf{P}_{t|t}\mathbf{F}' + \mathbf{Q} \\
 = \mathbf{F}[\mathbf{P}_{t|t-1} - \mathbf{P}_{t|t-1}\mathbf{H}(\mathbf{H}'\mathbf{P}_{t|t-1}\mathbf{H} + \mathbf{R})^{-1}\mathbf{H}'\mathbf{P}_{t|t-1}]\mathbf{F}' + \mathbf{Q}
 $$
 
@@ -505,6 +506,8 @@ $$
 ---
 
 ## Kalman Smoothing {#sec-kalman-smoothing}
+
+
 
 # Estimação dos parâmetros {#sec-estimacao}
 
