@@ -15,7 +15,8 @@
     "infcausal.html": "cf9f0436"
   },
   "Seminarios/kalman_filter.qmd": {
-    "kalman_filter.html": "ac7f641c"
+    "kalman_filter.html": "ac7f641c",
+    "kalman_filter.tex": "348b68ee"
   },
   "Materias/Analise_Sobrevivencia.qmd": {
     "Analise_Sobrevivencia.html": "10d45711"

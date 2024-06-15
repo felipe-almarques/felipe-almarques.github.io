@@ -46,7 +46,7 @@
     "href": "Seminarios/kalman_filter.html#sumario",
     "title": "Kalman Filter",
     "section": "Sumario",
-    "text": "Sumario\n\nState Space Representation\nKalman Filter (ou prediction ou smoothing)\nblablabla"
+    "text": "Sumario\n\nState Space Representation\nKalman Filter (ou prediction ou smoothing)\nPrevisão\nEstimação dos parâmetros"
   },
   {
     "objectID": "Seminarios/gas_garch_sv.html#introdução",
@@ -313,5 +313,110 @@
     "title": "GAS Model",
     "section": "",
     "text": "Introdução\nO modelo\nComparações\nCasos Particulares\nEstimação"
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#máxima-verossimilhança",
+    "href": "Seminarios/kalman_filter.html#máxima-verossimilhança",
+    "title": "Kalman Filter",
+    "section": "Máxima verossimilhança",
+    "text": "Máxima verossimilhança\nA estimação dos parâmetros desconhecidos é feita através do método de máxima verossimilhança.\nCaso \\(\\xi_1\\) e \\(\\{\\mathbf{w}_t,\\mathbf{v}_t\\}\\)"
+  },
+  {
+    "objectID": "index.html#interesses",
+    "href": "index.html#interesses",
+    "title": "Felipe Marques",
+    "section": "",
+    "text": "Tenho muito interesse nas áreas de séries temporias, machine learning, econometria e finanças. Gosto muito de programar em R, mas sei também programar em Python e estou começando a aprender Júlia."
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#sumário",
+    "href": "Seminarios/kalman_filter.html#sumário",
+    "title": "Kalman Filter",
+    "section": "Sumário",
+    "text": "Sumário\n\nIntrodução\nState Space Representation\nKalman Recursion\n\nKalman Filter\nKalman Prediction\nKalman Smoothing\n\nEstimação dos parâmetros\nInferência com Kalman Filter"
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#introducao-sec-introducao",
+    "href": "Seminarios/kalman_filter.html#introducao-sec-introducao",
+    "title": "Kalman Filter",
+    "section": "Introducao {sec-introducao}",
+    "text": "Introducao {sec-introducao}\nA representação em estado de espaço é uma forma conveniente de representar as dinâmicas de uma variável através de duas equações que a descreve. (melhorar essa parte)\nEssa representação será útil quando tratarmos dos algoritmos de Kalman."
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#state-space-representation-sec-state-space-.unnumbered",
+    "href": "Seminarios/kalman_filter.html#state-space-representation-sec-state-space-.unnumbered",
+    "title": "Kalman Filter",
+    "section": "State Space Representation {sec-state-space .unnumbered}",
+    "text": "State Space Representation {sec-state-space .unnumbered}\nConsidere,\n\n\\(\\underset{(n \\times 1)}{\\mathbf{y}_t}\\) um vetor de retornos observados,\n\\(\\underset{(r \\times 1)}{\\xi_t}\\) um vetor possívelmente não observado,\n\\(\\underset{(k \\times 1)}{\\mathbf{x}_t}\\) um vetor de variáveis exógenas,\n\\(\\mathbf{F}_{(r \\times r)}, \\mathbf{A}_{(n \\times k)}', \\mathbf{H}'_{(n \\times r)}\\) matrizes de coeficientes."
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#sec-introducao",
+    "href": "Seminarios/kalman_filter.html#sec-introducao",
+    "title": "Kalman Filter",
+    "section": "Introdução",
+    "text": "Introdução\nA representação em estado de espaço é uma forma conveniente de representar as dinâmicas de uma variável através de duas equações que a descreve. (melhorar essa parte)\nEssa representação será útil quando tratarmos dos algoritmos de Kalman."
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#sec-state-space",
+    "href": "Seminarios/kalman_filter.html#sec-state-space",
+    "title": "Kalman Filter",
+    "section": "State Space Representation",
+    "text": "State Space Representation\nConsidere,\n\n\\(\\underset{(n \\times 1)}{\\mathbf{y}_t}\\) um vetor de retornos observados,\n\\(\\underset{(r \\times 1)}{\\xi_t}\\) um vetor possívelmente não observado (state vector),\n\\(\\underset{(k \\times 1)}{\\mathbf{x}_t}\\) um vetor de variáveis exógenas,\n\\(\\mathbf{F}_{(r \\times r)}, \\mathbf{A}_{(n \\times k)}', \\mathbf{H}'_{(n \\times r)}\\) matrizes de coeficientes."
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#kalman-recursion-1",
+    "href": "Seminarios/kalman_filter.html#kalman-recursion-1",
+    "title": "Kalman Filter",
+    "section": "Kalman Recursion",
+    "text": "Kalman Recursion\nA recursão de Kalman é um método iterativo e recursivo para encontrar o melhor estimador linear de \\(\\xi_t\\), utilizando toda informação disponível até o momento.\nNesse sentido, em geral, o interesse está em um desses 3 casos:\n\nfilter (\\(\\hat\\xi_{t|t}\\))\nprediction (\\(\\hat\\xi_{t+1|t}\\))\nsmoothing (\\(\\hat\\xi_{\\tau|t}, \\tau &lt; t\\))"
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#kalman",
+    "href": "Seminarios/kalman_filter.html#kalman",
+    "title": "Kalman Filter",
+    "section": "Kalman",
+    "text": "Kalman"
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#kalman-filter",
+    "href": "Seminarios/kalman_filter.html#kalman-filter",
+    "title": "Kalman Filter",
+    "section": "Kalman Filter",
+    "text": "Kalman Filter"
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#kalman-recursion",
+    "href": "Seminarios/kalman_filter.html#kalman-recursion",
+    "title": "Kalman Filter",
+    "section": "Kalman Recursion",
+    "text": "Kalman Recursion\nA recursão de Kalman é um método iterativo e recursivo para encontrar o melhor estimador linear de \\(\\xi_t\\), utilizando toda informação disponível até o momento (\\(\\mathcal{F}_t = (y_t', y_{t-1}', \\ldots, y_1', x_t', x_{t-1}', \\ldots, x_1')\\)).\nNesse sentido, em geral, o interesse está em um desses 3 casos:\n\npredição (\\(\\hat\\xi_{t+1|t}\\))\nfiltro (\\(\\hat\\xi_{t|t}\\))\nsuavização (\\(\\hat\\xi_{\\tau|t}, \\tau &lt; t\\))"
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#sec-kalman-filter",
+    "href": "Seminarios/kalman_filter.html#sec-kalman-filter",
+    "title": "Kalman Filter",
+    "section": "Kalman Filter",
+    "text": "Kalman Filter"
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#sec-kalman-prediction",
+    "href": "Seminarios/kalman_filter.html#sec-kalman-prediction",
+    "title": "Kalman Filter",
+    "section": "Kalman Prediction",
+    "text": "Kalman Prediction\n\nO interesse é construir previsões lineares para \\(\\xi_t\\) dado toda informação passada, ou seja:\n\n\n\\[\n\\hat\\xi_{t+1|t} \\equiv \\hat E(\\xi_{t+1}|\\mathcal{F}_t)\n\\]\n\n\ncuja matriz de erro quadrático médio associada é dada por:\n\n\n\\[\n\\mathbf{P}_{t+1|t} \\equiv \\text{E}\\left[(\\xi_{t+1} - \\hat\\xi_{t+1})(\\xi_{t+1} - \\hat\\xi_{t+1})'\\right]\n\\]\n\n\nOs passos para construir o algoritmo são:\n\n\n\nDefinir \\(\\hat\\xi_{1|0}\\) e \\(\\mathbf{P}_{1|0}\\)\nPrever \\(\\hat y_{t|t-1}\\)\n\n\n\nAtualizar \\(\\hat\\xi_{t|t}\\)\nPrever \\(\\hat\\xi_{t+1|t}\\)"
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#sec-kalman-smoothing",
+    "href": "Seminarios/kalman_filter.html#sec-kalman-smoothing",
+    "title": "Kalman Filter",
+    "section": "Kalman Smoothing",
+    "text": "Kalman Smoothing"
+  },
+  {
+    "objectID": "Seminarios/kalman_filter.html#exemplos",
+    "href": "Seminarios/kalman_filter.html#exemplos",
+    "title": "Kalman Filter",
+    "section": "Exemplos",
+    "text": "Exemplos\n\nConsidere o processo AR(p) dado da forma:\n\n\n\\[\ny_{t+1} - \\mu = \\phi_1(y_t - \\mu) + \\ldots + \\phi_p(y_{t-p+1} - \\mu) + \\epsilon_{t+1}\n\\]\n\n\nonde \\(\\epsilon_t \\sim WN(0, \\sigma^2)\\)\nPodemos escrever esse modelo na forma de espaço de estado como segue:"
   }
 ]

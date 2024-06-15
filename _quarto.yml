@@ -24,8 +24,8 @@ website:
 format:
   html:
     theme: 
-      light: lux
-      dark: cyborg
+      light: [lux, custom-light.scss]
+      dark: [lux, custom-dark.scss]
     css: styles.css
     toc: true
 
