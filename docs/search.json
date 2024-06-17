@@ -431,6 +431,41 @@
     "href": "Materias/seminario_tempo_falha_corr.html#introdução-1",
     "title": "Tempos de Falhas Correlacionados",
     "section": "Introdução",
-    "text": "Introdução\nFoco: Analisar dados de tempos de falha agrupados ou correlacionado\nComo surgem?\nAgrupamento: os indivíduos observados podem ser agrupados de uma maneira que pode ocasionar dependência dentro dos grupos.\n. . .\nAcompanhamento de pacientes de um grupo de hospitais. Os tempos de falha podem estar correlacionados dentro dos grupos de cada hospital devido a diferentes procedimentos clínicos adotados por cada hospital.\n. . .\nCorrelação entre tempos de falha: os indivíduos em risco são acompanhados para observar vários tipos de falha (vetor de tempos de falha).\n. . .\nAssemelha-se aos riscos competitivos com a distinção de que os indivíduos são observados mesmo depois da ocorrência do primeiro evento com vista a permitir que todo o vetor multivariado de tempos de falha seja observado alem da censura."
+    "text": "Introdução\n\nDados com tempo de falhas correlacionados podem surgir de diversas formas, a principal é através de agrupamentos, onde os indivíduos observados podem ser agrupados de uma maneira que pode ocasionar dependência dentro dos grupos.\n\n\nPor exemplo:\nAcompanhamento de pacientes de um grupo de hospitais. Os tempos de falha podem estar correlacionados dentro dos grupos de cada hospital devido a diferentes procedimentos clínicos adotados por cada hospital."
+  },
+  {
+    "objectID": "Materias/seminario_tempo_falha_corr.html#modelos-de-regressão-para-tempos-de-falha-correlacionados",
+    "href": "Materias/seminario_tempo_falha_corr.html#modelos-de-regressão-para-tempos-de-falha-correlacionados",
+    "title": "Tempos de Falhas Correlacionados",
+    "section": "Modelos de Regressão para Tempos de Falha Correlacionados",
+    "text": "Modelos de Regressão para Tempos de Falha Correlacionados\nConsidere \\(\\widetilde{T}_1, \\ldots, \\widetilde{T}_m\\) tempos de falhas que podem ser correlacionados. Além disso, considere que cada tempo \\(\\widetilde{T}_i\\) possui um vetor de covariáveis \\(x_i\\) associado. A função de sobrevivência conjunta é,\n\\[\nS(t_1, \\ldots, t_m;x) = P(\\widetilde{T}_1 &gt; t_1, \\ldots, \\widetilde{T}_m &gt; t_m;x)\n\\]\nDefinimos as funções de riscos marginais como:\n\\[\n\\lambda_j(t_j|x) = P(t_j \\leq \\widetilde{T}_j &lt; t_j + \\Delta| \\widetilde{T}_j &gt; t_j, x)\n\\]\nEnquanto as funções de risco de segunda ordem são definidas como:\n\\[\n\\lambda_{jk}(t_j,t_k|x) = P(t_j \\leq \\widetilde{T}_j &lt; t_j + \\Delta_j, t_k \\leq \\widetilde{T}_k &lt; t_k + \\Delta_k| \\widetilde{T}_j &gt; t_j, \\widetilde{T}_k &gt; t_k,x)\n\\]\npara \\(j \\neq k\\) e \\(j,k \\in \\{1,\\ldots,m\\}\\)."
+  },
+  {
+    "objectID": "Materias/seminario_tempo_falha_corr.html#regressão-nas-funções-de-risco-marginais",
+    "href": "Materias/seminario_tempo_falha_corr.html#regressão-nas-funções-de-risco-marginais",
+    "title": "Tempos de Falhas Correlacionados",
+    "section": "Regressão nas funções de risco marginais",
+    "text": "Regressão nas funções de risco marginais\nPodemos considerar a função de risco dada por Cox, da seguinte forma:\n\\[\n\\lambda_j(t_j;X_j(t_j)) = \\lambda_{0j}\\exp(Z_j(t_j)'\\beta)\n\\]\nOnde, \\(Z_j(t)\\) é um vetor formado por \\(X_j(t)\\) e \\(t\\).\nA pseudo-verossimilhança é então construída da seguinte forma, considerando \\(m\\) variáveis de tempo de falha.\n\\[\nL(\\beta) = \\prod_{j=1}^m\\prod_{i=1}^n \\left[\\frac{\\exp(Z_{ij}(t_{ij})'\\beta)}{\\sum_{\\ell \\in R(t_{ji})}\\exp(Z_{j\\ell}(t_{ij})'\\beta)}\\right]^{\\delta_{ji}}\n\\]\nOnde \\(R(t_{ji})\\) é o conjunto dos índices dos indivíduos em risco no tempo \\(i\\) para a variável de tempo \\(j\\).\nEssa expressão só é considerada como verossimilhança parcial se \\(\\widetilde{T}_1, \\ldots, \\widetilde{T}_m\\) forem independentes dado as covariáveis."
+  },
+  {
+    "objectID": "Materias/seminario_tempo_falha_corr.html#regressão-em-função-de-risco-de-mais-alta-ordem",
+    "href": "Materias/seminario_tempo_falha_corr.html#regressão-em-função-de-risco-de-mais-alta-ordem",
+    "title": "Tempos de Falhas Correlacionados",
+    "section": "Regressão em função de risco de mais alta ordem",
+    "text": "Regressão em função de risco de mais alta ordem\nCaso o interesse seja em identificar dependências de maior ordem entre as funções de risco, podemos fazer isso utilizando um efeito aleatório, ou de fragilidade \\(\\alpha_j\\), e assumindo que os tempos de falha são independentes dado esse efeito. Assim, o risco da \\(j\\)-ésima componente do \\(i\\)-ésimo grupo é dado por:\n\\[\n\\lambda_j(t_j| X_j(t_j), \\alpha_i) = \\alpha_i\\lambda_{0j}\\exp(Z_j(t_j)'\\beta)\n\\]\nPara \\(j = 1,\\ldots,m\\) e \\(i = 1, \\ldots, n\\). Onde as fragilidades \\(\\alpha_i \\stackrel{iid}{\\sim} Gama\\), com \\(E(\\alpha_i) = 0\\) e \\(Var(\\alpha_i) = \\theta\\)."
+  },
+  {
+    "objectID": "Materias/seminario_tempo_falha_corr.html#exemplo",
+    "href": "Materias/seminario_tempo_falha_corr.html#exemplo",
+    "title": "Tempos de Falhas Correlacionados",
+    "section": "Exemplo",
+    "text": "Exemplo\n\nPeterson et al. (2000) reportou um estudo feito com 8388 estudantes de 40 distritos escolares. Cada distrito foi alocado aleatoriamente para um grupo tratamento, onde teria um programa baseado em influência social para prevenção de fumo, e para um grupo controle, que receberia o programa de educação em saúde usual. O evento de interesse era o tempo até o indivíduo começar a fumar.\n\n\nNo entanto, esse tempo até o início do fumo pode estar correlacionado dentro de cada distrito, devidos a características comuns aquele distrito, ou até sua localização geográfica."
+  },
+  {
+    "objectID": "Materias/seminario_tempo_falha_corr.html#dados-com-tempo-de-falhas-correlacionados-em-indivíduos",
+    "href": "Materias/seminario_tempo_falha_corr.html#dados-com-tempo-de-falhas-correlacionados-em-indivíduos",
+    "title": "Tempos de Falhas Correlacionados",
+    "section": "Dados com Tempo de Falhas Correlacionados em indivíduos",
+    "text": "Dados com Tempo de Falhas Correlacionados em indivíduos\n\nDados com tempos de falhas correlacionados em indivíduos são similares a dados com riscos competitivos, com a diferença que no primeiro caso, continuamos observando um indivíduo que falhou de uma causa específica, até que este falhe de todas as causas possíveis ou seja censurado.\n\n\nUm estudo com mais de 48000 mulheres na pós-menopausa observava o tempo até que os indivíduos fossem diagnosticados com câncer de mama ou câncer colorretal. Pacientes com câncer de mama continuavam sendo acompanhados até que fosse observado câncer colorretal ou doenças cardíacas, etc.\n\n\nNesse caso, o interesse está na relação entre os tratamentos e o risco de uma doença específica. Podemos estudar essa relação através do risco marginal."
   }
 ]

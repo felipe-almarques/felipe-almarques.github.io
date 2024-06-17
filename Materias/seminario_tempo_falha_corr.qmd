@@ -17,31 +17,101 @@ editor: visual
 
 ## Introdução
 
-**Foco:** Analisar dados de tempos de falha agrupados ou correlacionado
+. . .
 
-**Como surgem?**
-
-**Agrupamento:** os indivíduos observados podem ser agrupados de uma maneira que pode ocasionar dependência dentro dos grupos.
+Dados com tempo de falhas correlacionados podem surgir de diversas formas, a principal é através de **agrupamentos**, onde os indivíduos observados podem ser agrupados de uma maneira que pode ocasionar dependência dentro dos grupos.
 
 . . .
+
+**Por exemplo:**
 
 Acompanhamento de pacientes de um grupo de hospitais. Os tempos de falha podem estar correlacionados dentro dos grupos de cada hospital devido a diferentes procedimentos clínicos adotados por cada hospital.
 
+---
+
+## Exemplo
+
 . . .
 
-Correlação entre tempos de falha: os indivíduos em risco são acompanhados para observar vários tipos de falha (vetor de tempos de falha).
+Peterson et al. (2000) reportou um estudo feito com 8388 estudantes de 40 distritos escolares. Cada distrito foi alocado aleatoriamente para um grupo tratamento, onde teria um programa baseado em influência social para prevenção de fumo, e para um grupo controle, que receberia o programa de educação em saúde usual. O evento de interesse era o tempo até o indivíduo começar a fumar. 
 
 . . .
 
-Assemelha-se aos riscos competitivos com a distinção de que os indivíduos são observados mesmo depois da ocorrência do primeiro evento com vista a permitir que todo o vetor multivariado de tempos de falha seja observado alem da censura.
+No entanto, esse tempo até o início do fumo pode estar correlacionado dentro de cada distrito, devidos a características comuns aquele distrito, ou até sua localização geográfica.
 
 ---
 
+## Dados com Tempo de Falhas Correlacionados em indivíduos  
+
+. . .
+
+Dados com tempos de falhas correlacionados em indivíduos são similares a dados com riscos competitivos, com a diferença que no primeiro caso, continuamos observando um indivíduo que falhou de uma causa específica, até que este falhe de todas as causas possíveis ou seja censurado.
+
+. . .
+
+Um estudo com mais de 48000 mulheres na pós-menopausa observava o tempo até que os indivíduos fossem diagnosticados com câncer de mama ou câncer colorretal. Pacientes com câncer de mama continuavam sendo acompanhados até que fosse observado câncer colorretal ou doenças cardíacas, etc.
+
+. . . 
+
+Nesse caso, o interesse está na relação entre os tratamentos e o risco de uma doença específica. Podemos estudar essa relação através do *risco marginal*.
+
 ## Modelos de Regressão para  Tempos de Falha Correlacionados 
 
-**Função de risco multivariada e censura independente:**
+Considere $\widetilde{T}_1, \ldots, \widetilde{T}_m$ tempos de falhas que podem ser correlacionados. Além disso, considere que cada tempo $\widetilde{T}_i$ possui um vetor de covariáveis $x_i$ associado. A função de sobrevivência conjunta é,
 
-Sejam $T_1, \ldots, T_m$ tempos de falha que podem ser correlacionados e suponha que o tempo de falha $T_i$ está associado a um vetor de covariáveis $\mathbf{x}_i$.
+$$
+S(t_1, \ldots, t_m;x) = P(\widetilde{T}_1 > t_1, \ldots, \widetilde{T}_m > t_m;x)
+$$
+
+Definimos as funções de riscos marginais como:
+
+$$
+\lambda_j(t_j|x) = P(t_j \leq \widetilde{T}_j < t_j + \Delta| \widetilde{T}_j > t_j, x)
+$$
+
+Enquanto as funções de risco de segunda ordem são definidas como:
+
+$$
+\lambda_{jk}(t_j,t_k|x) = P(t_j \leq \widetilde{T}_j < t_j + \Delta_j, t_k \leq \widetilde{T}_k < t_k + \Delta_k| \widetilde{T}_j > t_j, \widetilde{T}_k > t_k,x)
+$$
+
+para $j \neq k$ e $j,k \in \{1,\ldots,m\}$.
+
+---
+
+De forma geral, as covariáveis $x_j$ podem evoluir no tempo. Assim, definimos $X_j(t) = \{x_j(u): 0 < u <t\}$.  Assim, permitimos incluir o histórico da covariável até o tempo de interesse.
+
+Definimos $C_1, \ldots, C_m$ como os tempos de censura, e seja $T_j = min\{\widetilde{T}_j, C_j\}$ .  
+
+## Regressão nas funções de risco marginais
+
+Podemos considerar a função de risco dada por Cox, da seguinte forma:
+
+$$
+\lambda_j(t_j;X_j(t_j)) = \lambda_{0j}\exp(Z_j(t_j)'\beta)
+$$
+
+Onde, $Z_j(t)$ é um vetor formado por $X_j(t)$ e $t$.
+
+A pseudo-verossimilhança é então construída da seguinte forma, considerando $m$ variáveis de tempo de falha.
+
+$$
+L(\beta) = \prod_{j=1}^m\prod_{i=1}^n \left[\frac{\exp(Z_{ij}(t_{ij})'\beta)}{\sum_{\ell \in R(t_{ji})}\exp(Z_{j\ell}(t_{ij})'\beta)}\right]^{\delta_{ji}}
+$$
+
+Onde $R(t_{ji})$ é o conjunto dos índices dos indivíduos em risco no tempo $i$  para a variável de tempo $j$.
+
+Essa expressão só é considerada como verossimilhança parcial se $\widetilde{T}_1, \ldots, \widetilde{T}_m$ forem independentes dado as covariáveis.
+
+## Regressão em função de risco de mais alta ordem
+
+Caso o interesse seja em identificar dependências de maior ordem entre as funções de risco, podemos fazer isso utilizando um efeito aleatório, ou de fragilidade $\alpha_j$, e assumindo que os tempos de falha são independentes dado esse efeito. Assim, o risco da $j$-ésima componente do $i$-ésimo grupo é dado por:
+
+$$
+\lambda_j(t_j| X_j(t_j), \alpha_i) = \alpha_i\lambda_{0j}\exp(Z_j(t_j)'\beta)
+$$
+
+Para $j = 1,\ldots,m$ e $i = 1, \ldots, n$. Onde as fragilidades $\alpha_i \stackrel{iid}{\sim} Gama$, com $E(\alpha_i) = 0$ e $Var(\alpha_i) = \theta$.
 
 
 
