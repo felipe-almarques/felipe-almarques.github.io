@@ -159,4 +159,3 @@ Onde,
 -   Abbara, Omar, and Mauricio Zevallos. "A note on stochastic volatility model estimation." Brazilian Review of Finance 17.4 (2019): 22-32.
 
 -   Notas de aula ME607, Carlos Trucios
-

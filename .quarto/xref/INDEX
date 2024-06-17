@@ -47,5 +47,8 @@
   },
   "Materias/disciplinas.qmd": {
     "disciplinas.html": "b7860cd6"
+  },
+  "Materias/seminario_tempo_falha_corr.qmd": {
+    "seminario_tempo_falha_corr.html": "7297fab6"
   }
 }

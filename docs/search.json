@@ -418,5 +418,19 @@
     "title": "Kalman Filter",
     "section": "Exemplos",
     "text": "Exemplos\n\nConsidere o processo AR(p) dado da forma:\n\n\n\\[\ny_{t+1} - \\mu = \\phi_1(y_t - \\mu) + \\ldots + \\phi_p(y_{t-p+1} - \\mu) + \\epsilon_{t+1}\n\\]\n\n\nonde \\(\\epsilon_t \\sim WN(0, \\sigma^2)\\)\nPodemos escrever esse modelo na forma de espaço de estado como segue:"
+  },
+  {
+    "objectID": "Materias/seminario_tempo_falha_corr.html#sumário",
+    "href": "Materias/seminario_tempo_falha_corr.html#sumário",
+    "title": "Tempos de Falhas Correlacionados",
+    "section": "Sumário",
+    "text": "Sumário\n\nIntrodução"
+  },
+  {
+    "objectID": "Materias/seminario_tempo_falha_corr.html#introdução-1",
+    "href": "Materias/seminario_tempo_falha_corr.html#introdução-1",
+    "title": "Tempos de Falhas Correlacionados",
+    "section": "Introdução",
+    "text": "Introdução\nFoco: Analisar dados de tempos de falha agrupados ou correlacionado\nComo surgem?\nAgrupamento: os indivíduos observados podem ser agrupados de uma maneira que pode ocasionar dependência dentro dos grupos.\n. . .\nAcompanhamento de pacientes de um grupo de hospitais. Os tempos de falha podem estar correlacionados dentro dos grupos de cada hospital devido a diferentes procedimentos clínicos adotados por cada hospital.\n. . .\nCorrelação entre tempos de falha: os indivíduos em risco são acompanhados para observar vários tipos de falha (vetor de tempos de falha).\n. . .\nAssemelha-se aos riscos competitivos com a distinção de que os indivíduos são observados mesmo depois da ocorrência do primeiro evento com vista a permitir que todo o vetor multivariado de tempos de falha seja observado alem da censura."
   }
 ]

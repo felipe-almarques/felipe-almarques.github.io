@@ -22,7 +22,7 @@ editor: visual
 
 # State Space Representation
 
----
+------------------------------------------------------------------------
 
 ## Introdução {#sec-introducao}
 
@@ -30,7 +30,7 @@ A representação em estado de espaço é uma forma conveniente de representar a
 
 Essa representação será útil quando tratarmos dos algoritmos de Kalman.
 
----
+------------------------------------------------------------------------
 
 ## State Space Representation {#sec-state-space}
 
@@ -41,7 +41,7 @@ Considere,
 -   $\underset{(k \times 1)}{\mathbf{x}_t}$ um vetor de variáveis exógenas,
 -   $\mathbf{F}_{(r \times r)}, \mathbf{A}_{(n \times k)}', \mathbf{H}'_{(n \times r)}$ matrizes de coeficientes.
 
----
+------------------------------------------------------------------------
 
 Então, a representação em estado de espaço de um modelo é dada por:
 
@@ -68,7 +68,7 @@ $\textrm{Var}(\mathbf{v}_t) = \mathbf{Q}$ e $\textrm{Var}(\mathbf{w}_t) = \mathb
 
 A equação de cima é chamada de *observation equation*, enquanto a de baixo é chamada de *state equation*.
 
----
+------------------------------------------------------------------------
 
 ## Exemplos
 
@@ -88,10 +88,9 @@ onde $\epsilon_t \sim WN(0, \sigma^2)$
 
 Podemos escrever esse modelo na forma de espaço de estado como segue:
 
----
+------------------------------------------------------------------------
 
-(*State Equation*)
-$$
+(*State Equation*) $$
 \begin{bmatrix}
   y_{t+1} - \mu \\
   y_t - \mu \\
@@ -119,7 +118,6 @@ $$
 \end{bmatrix}
 $$
 
-
 (*Observation Equation*)
 
 $$
@@ -131,10 +129,9 @@ y_{t-p+1} - \mu
 \end{bmatrix}
 $$
 
----
+------------------------------------------------------------------------
 
-(*State Equation*)
-$$
+(*State Equation*) $$
 \underbrace{
 \begin{bmatrix}
   y_{t+1} - \mu \\
@@ -164,7 +161,6 @@ $$
 \end{bmatrix}}_{\mathbf{V}_t}
 $$
 
-
 (*Observation Equation*)
 
 $$
@@ -177,7 +173,7 @@ y_{t-p+1} - \mu
 \end{bmatrix}}_{\xi_t} + \underbrace{0}_{w_t}
 $$
 
----
+------------------------------------------------------------------------
 
 Considere agora, um processo MA(1):
 
@@ -187,10 +183,9 @@ $$
 
 Podemos também escrever esse modelo na forma de espaço de estado da seguinte maneira:
 
----
+------------------------------------------------------------------------
 
-(*State Equation*)
-$$
+(*State Equation*) $$
 \begin{bmatrix}
   \epsilon_{t+1} \\
   \epsilon_{t}
@@ -208,8 +203,7 @@ $$
 \end{bmatrix}
 $$
 
-(*Observation Equation*)
-$$
+(*Observation Equation*) $$
 y_t = \mu + \begin{bmatrix}
   1 & \theta
 \end{bmatrix}
@@ -219,7 +213,7 @@ y_t = \mu + \begin{bmatrix}
 \end{bmatrix}
 $$
 
----
+------------------------------------------------------------------------
 
 (*State Equation*)
 
@@ -253,7 +247,7 @@ $$
 \end{bmatrix}}_{\xi_t} + \underbrace{0}_{w_t}
 $$
 
----
+------------------------------------------------------------------------
 
 De modo geral, um modelo ARMA(p,q) dado da forma:
 
@@ -265,7 +259,7 @@ Onde $r \equiv \max\{p, q + 1\}$. Além disso, $\phi_j = 0, j > p$ e $\theta_j =
 
 Chegamos na seguinte representação:
 
----
+------------------------------------------------------------------------
 
 (*State Equation*)
 
@@ -292,7 +286,7 @@ y_t = \mu + \begin{bmatrix}
 \end{bmatrix}\xi_t
 $$
 
----
+------------------------------------------------------------------------
 
 Veja que, se definirmos $\xi_{j,t}$ como o $j$-ésimo elemento de $xi_t$, ou seja:
 
@@ -334,7 +328,7 @@ $$
 \xi_{j,t+1} = L^{j-1}\xi_{1,t+1}
 $$
 
----
+------------------------------------------------------------------------
 
 Daí, a primeira linha da equação fica:
 
@@ -405,18 +399,19 @@ $$
 
 Os passos para construir o algoritmo são:
 
-::::{.columns}
-:::{.column}
-1. Definir $\hat\xi_{1|0}$ e $\mathbf{P}_{1|0}$
-2. Prever $\hat y_{t|t-1}$
+::: columns
+::: column
+1.  Definir $\hat\xi_{1|0}$ e $\mathbf{P}_{1|0}$
+2.  Prever $\hat y_{t|t-1}$
 :::
-:::{.column}
-3. Atualizar $\hat\xi_{t|t}$
-4. Prever $\hat\xi_{t+1|t}$
-:::
-::::
 
----
+::: column
+3.  Atualizar $\hat\xi_{t|t}$
+4.  Prever $\hat\xi_{t+1|t}$
+:::
+:::
+
+------------------------------------------------------------------------
 
 ### Passo 1 - chute inical
 
@@ -429,13 +424,13 @@ $$
 
 Caso os autovalores de $\mathbf{F}$ estejam todos dentro do circulo unitário, podemos começar a recursão utilizando:
 
-- $\hat\xi_{1|0} = \mathbf{0}$
+-   $\hat\xi_{1|0} = \mathbf{0}$
 
-- $\text{vec}(\mathbf{P}_{1|0}) = [\mathbf{I}_{r^2} - (\mathbf{F}\otimes\mathbf{F})]^{-1}\cdot\text{vec}(\mathbf{Q})$
+-   $\text{vec}(\mathbf{P}_{1|0}) = [\mathbf{I}_{r^2} - (\mathbf{F}\otimes\mathbf{F})]^{-1}\cdot\text{vec}(\mathbf{Q})$
 
 Caso os autovalores de $\mathbf{F}$ não estejamo no círculo unitário, definimos $\hat\xi_(1|0)$ como o melhor chute inicial que tivermos. E definimos $\mathbf{P}_{1|0}$ como a confiança que temos nesse chute.
 
----
+------------------------------------------------------------------------
 
 ### Passo 2 - prever $\hat y_{t|t-1}$
 
@@ -453,7 +448,7 @@ E\left[(y_t - \hat y_{t|t-1})(y_t - \hat y_{t|t-1})'\right] = E\left[\mathbf{H}'
 = \mathbf{H}'\mathbf{P}_{t|t-1}\mathbf{H} + \mathbf{R}
 $$
 
----
+------------------------------------------------------------------------
 
 ### Passo 3 - Atualizar $\hat\xi_{t|t}$
 
@@ -476,7 +471,7 @@ $$
 \mathbf{P}_{t|t} = \mathbf{P}_{t|t-1} - \mathbf{P}_{t|t-1}\mathbf{H}(\mathbf{H}'\mathbf{P}_{t|t-1}\mathbf{H} + \mathbf{R})^{-1}\mathbf{H}'\mathbf{P}_{t|t-1}
 $$
 
----
+------------------------------------------------------------------------
 
 ### Passo 4 - Prever $\hat\xi_{t+1|t}$
 
@@ -502,12 +497,9 @@ $$
 
 ## Kalman Filter {#sec-kalman-filter}
 
-
----
+------------------------------------------------------------------------
 
 ## Kalman Smoothing {#sec-kalman-smoothing}
-
-
 
 # Estimação dos parâmetros {#sec-estimacao}
 
@@ -518,6 +510,3 @@ A estimação dos parâmetros desconhecidos é feita através do método de máx
 Caso $\xi_1$ e $\{\mathbf{w}_t,\mathbf{v}_t\}$
 
 # Inferência com Kalman Filter {#sec-inferencia}
-
-
-

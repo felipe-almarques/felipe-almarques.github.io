@@ -1,0 +1,48 @@
+---
+title: "Tempos de Falhas Correlacionados"
+author: "Felipe Marques & Moisés André Augusto"
+format: 
+  revealjs:
+    incremental: true
+    theme: [default, custom.scss]
+    chalkboard: true
+editor: visual
+---
+
+## Sumário
+
+-   Introdução
+
+# Introdução
+
+## Introdução
+
+**Foco:** Analisar dados de tempos de falha agrupados ou correlacionado
+
+**Como surgem?**
+
+**Agrupamento:** os indivíduos observados podem ser agrupados de uma maneira que pode ocasionar dependência dentro dos grupos.
+
+. . .
+
+Acompanhamento de pacientes de um grupo de hospitais. Os tempos de falha podem estar correlacionados dentro dos grupos de cada hospital devido a diferentes procedimentos clínicos adotados por cada hospital.
+
+. . .
+
+Correlação entre tempos de falha: os indivíduos em risco são acompanhados para observar vários tipos de falha (vetor de tempos de falha).
+
+. . .
+
+Assemelha-se aos riscos competitivos com a distinção de que os indivíduos são observados mesmo depois da ocorrência do primeiro evento com vista a permitir que todo o vetor multivariado de tempos de falha seja observado alem da censura.
+
+---
+
+## Modelos de Regressão para  Tempos de Falha Correlacionados 
+
+**Função de risco multivariada e censura independente:**
+
+Sejam $T_1, \ldots, T_m$ tempos de falha que podem ser correlacionados e suponha que o tempo de falha $T_i$ está associado a um vetor de covariáveis $\mathbf{x}_i$.
+
+
+
+
